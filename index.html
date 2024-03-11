@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+  <link rel="icon" href="./image/icon.PNG" type="image/x-icon">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Cutive+Mono&display=swap">
+  <title>chia-ling hsu</title>
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Open Sans', 'Noto Sans TC', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    #img01 {
+      z-index: -1;
+      top: -100px;
+      left: 0;
+    }
+
+    #backtop {
+      position: fixed;
+      z-index: 1000;
+      right: 2%;
+      bottom: 250px;
+      display: none;
+      opacity: 0;
+    }
+
+    #aboutmeform {
+      width: 98vw;
+      margin: auto;
+      height: 100vh;
+      overflow-y: scroll;
+    }
+
+    #aboutme {
+      position: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .font-italic {
+      font-style: italic;
+    }
+
+    .mt-0 {
+      margin-top: 0;
+    }
+
+    .mb-0 {
+      margin-bottom: 0;
+    }
+
+    .mb-24 {
+      margin-bottom: 24px;
+    }
+
+    .fine-list {
+      margin: 0;
+      padding: 0;
+    }
+
+    .fine-list li {
+      list-style-type: none;
+      padding: 4px 0;
+    }
+
+    .flex-item {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+
+    .flex-item h4 {
+      margin: 0;
+    }
+
+    #wrapper {
+      background: #ccc;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .section-heading {
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+
+    #lineborder {
+      padding: 2rem
+    }
+
+    #fish {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      #fish {
+        display: block;
+      }
+
+      #linebot::before {
+        display: none;
+        content: '';
+        position: absolute;
+        top: 53%;
+        left: 51%;
+        transform: translate(-50%, -50%);
+        width: 40%;
+        height: 90%;
+        border: 2px solid #4484a5;
+        border-radius: 0.5rem;
+        transition: .5s;
+        z-index: -1;
+      }
+
+      #linebot:hover::before {
+        display: block;
+      }
+    }
+
+
+    #aside {
+      flex: 240px 0 0;
+      background: #262427;
+      color: #fff;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50rem;
+      overflow: hidden;
+      margin: 24px;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+    }
+
+    #aside h4 {
+      margin-bottom: 8px;
+      margin-top: 0;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    #aside p {
+      font-size: 0.875rem;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .aside-section {
+      padding-left: 25px;
+    }
+
+    .section-content {
+      padding-right: 16px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    #aside hr {
+      margin-top: 0;
+      margin-bottom: 0;
+      border: none;
+      background-color: #eee;
+      height: 1px;
+    }
+
+    #main {
+      flex: auto 1 1;
+      background: #fff;
+      padding: 24px;
+      padding-top: 48px;
+    }
+
+    #main h2,
+    #main h3 {
+      margin: 0;
+      color: #333;
+    }
+
+    #main h4 {
+      color: #333;
+    }
+
+    #main p {
+      color: #777;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    #main ul {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    #main ul li {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      color: #777;
+    }
+
+    #main hr {
+      background-color: #ccc;
+      border: none;
+      height: 1px;
+      margin-bottom: 24px;
+    }
+
+    .main-section {
+      margin-bottom: 32px;
+    }
+
+    .progress {
+      display: -ms-flexbox;
+      display: flex;
+      height: 1rem;
+      overflow: hidden;
+      font-size: 0.75rem;
+      background-color: #ddd;
+      border-radius: 0.25rem;
+      min-width: 300px;
+      height: 8px;
+    }
+
+    .progress-bar {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-pack: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+      white-space: nowrap;
+      background-color: #666;
+      transition: width 0.6s ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .progress-bar {
+        transition: none;
+      }
+    }
+
+    @keyframes fish {
+
+      0%,
+      70% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fish {
+
+      0%,
+      70% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    html {
+      height: 100%;
+    }
+
+    a {
+      cursor: pointer;
+      color: #000;
+      text-decoration: none;
+      -moz-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+
+    a:hover {
+      color: #ff5050;
+    }
+
+    .fish,
+    .fish-shadow {
+      width: 640px;
+      height: auto;
+      position: absolute;
+      top: -145px;
+      left: -177px;
+      -moz-animation: fish 3s forwards ease-in-out;
+      -webkit-animation: fish 3s forwards ease-in-out;
+      animation: fish 3s forwards ease-in-out;
+    }
+
+    .fish path,
+    .fish-shadow path {
+      fill: #fff;
+    }
+
+    .fish path:hover,
+    .fish-shadow path:hover {
+      fill: #ff6100;
+    }
+
+    .fish .line,
+    .fish-shadow .line {
+      fill: none;
+    }
+
+    .fish-shadow-con {
+      opacity: 0.2;
+      filter: blur(10px);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .fish-shadow {
+      top: -125px;
+      left: -157px;
+    }
+
+    .fish-shadow path {
+      fill: #211922;
+    }
+
+    .fish-shadow path:hover {
+      fill: #211922;
+    }
+
+    .fish-shadow {
+      -webkit-filter: url('#goo');
+      filter: url(#goo);
+      top: -125px;
+      left: -157px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body class="dark:bg-gray-900">
+  <header>
+    <!-- navbar -->
+    <nav id="navbar" class="w-full bg-white fixed border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+      <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+        <a href="https://github.com/Lisia229" class="flex items-center">
+          <div class="flex items-center space-x-4">
+            <img class="w-10 h-10 rounded-full" src="./image/linda.JPG" />
+            <div class="font-medium dark:text-white">
+              <div>Chia Ling Hsu</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Web Designer</div>
+            </div>
+          </div>
+        </a>
+        <div class="flex items-center lg:order-2">
+          <button id="theme-toggle" type="button"
+            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- -about me -->
+  <div id="section01">
+    <section class="dark:bg-gray-900">
+      <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+        <div class="p-5 font-light text-gray-500 sm:text-lg dark:text-gray-400">
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Web Designer</h2>
+          <p class="mb-4">
+            你好，我是徐嘉伶，在校期間曾選修網頁設計課程，具有相當濃厚的興趣，大學畢業後，思考自己是否有其他發展的可能性，於是參加為期半年的專業訓練，習得HTML、CSS、SASS、SCSS、Figma、JavaScript、jQuery、Bootstrap及Vue.js等前端網頁開發技術。
+            <br>
+            可以獨立完成RWD網頁設計與網頁互動腳本的撰寫，能使用前端框架、串接後端資料庫及 API 資料串接應用，建置具前後台網頁功能的網站。
+            <br>
+            前端開發技術日新月異，唯有持續不斷的精進，才能成為一位為團隊及公司帶來價值的前端開發工程師。
+          </p>
+
+          <!-- Modal toggle -->
+          <button data-modal-target="aboutme" data-modal-toggle="aboutme"
+            class="block text-white bg-gray-800 hover:bg-pink-400 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-white dark:hover:bg-pink-700 dark:focus:ring-pink-800 dark:text-gray-700"
+            type="button">
+            查看簡歷
+          </button>
+
+          <!-- Main modal -->
+          <div id="aboutme" tabindex="-1" aria-hidden="true"
+            class="fixed top-0 left-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto mx-auto">
+            <div class="relative w-full h-full">
+              <!-- Modal content -->
+              <div id="aboutmeform" class="relative bg-white rounded-lg overflow-y-auto shadow dark:bg-gray-700">
+                <button type="button"
+                  class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                  data-modal-hide="aboutme">
+                  <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+                <div class="px-6 py-6 lg:px-8 w-full h-full">
+                  <div id="wrapper">
+                    <div class="container">
+                      <aside id="aside">
+                        <div class="aside-section">
+                          <aside id="aside">
+                            <div class="avatar">
+                              <img class="object-cover" src="./image/linda.JPG" alt="me" />
+                            </div>
+                        </div>
+                        <div class="aside-section">
+                          <h3 class="section-heading">Profilo</h3>
+                          <hr />
+                          <div class="section-content">
+                            <h4>Name:</h4>
+                            <p>徐嘉伶</p>
+                            <h4>Email Address:</h4>
+                            <p>h200022923@gmail.com</p>
+                            <h4>Phone:</h4>
+                            <p>+886 0921 952906</p>
+                            <h4>Address:</h4>
+                            <p>
+                              台北市信義區
+                            </p>
+                            <h4>Sex:</h4>
+                            <p>Female</p>
+                          </div>
+                        </div>
+                        <div class="aside-section">
+                          <div class="section-content">
+
+                          </div>
+                        </div>
+                        <!-- .aside-section -->
+
+                        <div class="aside-section">
+                          <h3 class="section-heading">Interests</h3>
+                          <hr />
+                          <div class="section-content">
+                            <ul class="fine-list">
+                              <li>Photography</li>
+                              <li>Programming</li>
+                              <li>Cooking</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- .aside-section -->
+
+                        <div class="aside-section">
+                          <h3 class="section-heading">Languages</h3>
+                          <hr />
+                          <div class="section-content">
+                            <div class="flex-list">
+                              <div class="flex-item">
+                                <span>Chinese</span>
+                                <span>Native</span>
+                              </div>
+                              <div class="flex-item">
+                                <span>English</span>
+                                <span>Fluent</span>
+                              </div>
+                              <div class="flex-item">
+                                <span>French</span>
+                                <span>Good</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- .aside-section -->
+                      </aside>
+                      <main id="main">
+                        <section class="main-section">
+                          <h2>關於我</h2>
+                          <hr />
+                          <p>
+                            你好，我是徐嘉伶，在校期間曾選修網頁設計課程，具有相當濃厚的興趣，大學畢業後，思考自己是否有其他發展的可能性，於是參加為期半年的專業訓練，習得HTML、CSS、SASS、SCSS、Figma、JavaScript、jQuery、Bootstrap及Vue.js等前端網頁開發技術。
+                            <br>
+                            可以獨立完成RWD網頁設計與網頁互動腳本的撰寫，能使用前端框架、串接後端資料庫及 API 資料串接應用，建置具前後台網頁功能的網站。
+                            前端開發技術日新月異，唯有持續不斷的精進，才能成為一位為團隊及公司帶來價值的前端開發工程師。
+                          </p>
+                        </section>
+
+                        <section class="main-section">
+                          <h3>學歷</h3>
+                          <hr />
+                          <div class="mb-24">
+                            <div class="flex-item">
+                              <h4>前端網頁開發技術（青年專班）</h4>
+                              <span>2022 09 - 2023 03</span>
+                            </div>
+                            <p class="font-italic mt-0">
+                              泰山職訓局
+                            </p>
+                          </div>
+
+                          <div class="mb-24">
+                            <div class="flex-item">
+                              <h4>法國語文學系</h4>
+                              <span>2018 09 - 2022 06</span>
+                            </div>
+                            <p class="font-italic mt-0">
+                              私立淡江大學
+                            </p>
+                          </div>
+                        </section>
+
+                        <section class="main-section">
+                          <h3>工作經歷</h3>
+                          <hr />
+                          <div class="mb-24">
+                            <div class="flex-item">
+                              <h4>台灣文創發展股份有限公司</h4>
+                              <span> 2021 12 - 2022 05</span>
+                            </div>
+                            <p class="font-italic mt-0">活動部實習生</p>
+                            <p>
+                              1. 應用良好的溝通能力以及簡報，協助主管每週能夠快速了解當週活動的成效，以及妥善完成主管交代的事項。 <br>
+                              2. 當主管遇到文書處理相關問題時，能夠快速的幫主管解決問題。<br>
+                              3. 協助聯繫客戶合約、開發票以及退保等相關進度監督。<br>
+                              4. 向客戶介紹華山場地以及給予一些辦活動的建議。<br>
+                              5. 活動期間去巡場並記錄活動的成效是否達到預期成果並回報給主管。<br>
+                              6. 活動進場與撤場確實地和廠商點交，確保雙方權益。
+                            </p>
+                          </div>
+                        </section>
+
+                        <section class="main-section">
+                          <h3>技能</h3>
+                          <hr />
+                          <div class="flex-item">
+                            <h4>Microsoft Office</h4>
+                            <div class="progress">
+                              <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                          </div>
+
+                          <div class="flex-item">
+                            <h4>Js & Jq & Vue</h4>
+                            <div class="progress">
+                              <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                          </div>
+
+                          <div class="flex-item">
+                            <h4>HTML & CSS</h4>
+                            <div class="progress">
+                              <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                          </div>
+
+                          <div class="flex-item">
+                            <h4>Photoshop & Ilustratorr & figma</h4>
+                            <div class="progress">
+                              <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                          </div>
+                        </section>
+                      </main>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="grid grid-cols-2 gap-4 mt-8">
+          <img class="w-full rounded-lg shadow" src="./image/201327890036.jpeg" alt="office content 1" />
+          <img class="w-full mt-4 rounded-lg shadow" src="./image/IMG_6179_jpg.JPG" alt="office content 1" />
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- -專長 -->
+  <section id="section03" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="200"
+    class="dark:bg-gray-900 bg-pink-50 relative">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div class="relative overflow-x-auto sm:rounded-lg">
+        <div class="p-5 font-light text-gray-500 sm:text-lg dark:text-gray-400">
+          <div>
+            <h2
+              class="mb-4 text-center text-4xl tracking-tight dark:text-gray-400 font-extrabold text-gray-900 dark:text-white">
+              Professional skill</h2>
+          </div>
+          <div class="rounded-lg justify-center items-start mx-auto w-full lg:w-2/3 lg:flex ">
+            <div>
+              <h2 class="py-2 px-4 mb-2 text-lg font-semibold text-gray-900 dark:text-black">Visual design
+              </h2>
+              <ul class="py-2 px-4 max-w-md space-y-1 text-black list-disc list-inside dark:text-black">
+                <li class="flex items-center space-x-3">
+                  <svg height="25px" width="25px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 52 52" xml:space="preserve" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <g>
+                        <path style="fill:#6D4C13;"
+                          d="M40.824,52H11.176C5.003,52,0,46.997,0,40.824V11.176C0,5.003,5.003,0,11.176,0h29.649 C46.997,0,52,5.003,52,11.176v29.649C52,46.997,46.997,52,40.824,52z">
+                        </path>
+                        <g>
+                          <path style="fill:#FFBD2E;"
+                            d="M30.68,39h-3.24l-2.76-9.04h-8.32L13.72,39H10.6l8.24-28h3.32L30.68,39z M23.96,27l-3.48-11.36 L17.12,27H23.96z">
+                          </path>
+                          <path style="fill:#FFBD2E;"
+                            d="M37.479,12.24c0,0.453-0.16,0.84-0.48,1.16c-0.32,0.319-0.7,0.479-1.14,0.479 c-0.44,0-0.827-0.166-1.16-0.5c-0.334-0.333-0.5-0.713-0.5-1.14s0.166-0.807,0.5-1.141c0.333-0.333,0.72-0.5,1.16-0.5 c0.44,0,0.82,0.16,1.14,0.48C37.32,11.4,37.479,11.787,37.479,12.24z M37.24,39h-2.88V18.96h2.88V39z">
+                          </path>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <span> Illustrator</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg height="25px" width="25px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 52 52" xml:space="preserve" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <g>
+                        <path style="fill:#393687;"
+                          d="M40.824,52H11.176C5.003,52,0,46.997,0,40.824V11.176C0,5.003,5.003,0,11.176,0h29.649 C46.997,0,52,5.003,52,11.176v29.649C52,46.997,46.997,52,40.824,52z">
+                        </path>
+                        <g>
+                          <path style="fill:#89D3FF;"
+                            d="M12.16,39H9.28V11h9.64c2.613,0,4.553,0.813,5.82,2.44c1.266,1.626,1.9,3.76,1.9,6.399 c0,0.934-0.027,1.74-0.08,2.42c-0.054,0.681-0.22,1.534-0.5,2.561c-0.28,1.026-0.66,1.866-1.14,2.52 c-0.48,0.654-1.213,1.227-2.2,1.72c-0.987,0.494-2.16,0.74-3.52,0.74h-7.04V39z M12.16,27h6.68c0.96,0,1.773-0.187,2.44-0.56 c0.666-0.374,1.153-0.773,1.46-1.2c0.306-0.427,0.546-1.04,0.72-1.84c0.173-0.801,0.267-1.4,0.28-1.801 c0.013-0.399,0.02-0.973,0.02-1.72c0-4.053-1.694-6.08-5.08-6.08h-6.52V27z">
+                          </path>
+                          <path style="fill:#89D3FF;"
+                            d="M29.48,33.92l2.8-0.12c0.106,0.987,0.6,1.754,1.48,2.3c0.88,0.547,1.893,0.82,3.04,0.82 s2.14-0.26,2.98-0.78c0.84-0.52,1.26-1.266,1.26-2.239s-0.36-1.747-1.08-2.32c-0.72-0.573-1.6-1.026-2.64-1.36 c-1.04-0.333-2.086-0.686-3.14-1.06c-1.054-0.373-1.98-0.96-2.78-1.76c-0.987-0.934-1.48-2.073-1.48-3.42s0.54-2.601,1.62-3.761 s2.833-1.739,5.26-1.739c0.854,0,1.653,0.1,2.4,0.3c0.746,0.2,1.28,0.394,1.6,0.58l0.48,0.279l-0.92,2.521 c-0.854-0.666-1.974-1-3.36-1c-1.387,0-2.42,0.26-3.1,0.78c-0.68,0.52-1.02,1.18-1.02,1.979c0,0.88,0.426,1.574,1.28,2.08 c0.853,0.507,1.813,0.934,2.88,1.28c1.066,0.347,2.126,0.733,3.18,1.16c1.053,0.427,1.946,1.094,2.68,2s1.1,2.106,1.1,3.6 c0,1.494-0.6,2.794-1.8,3.9C41,39.046,39.246,39.6,36.94,39.6c-2.307,0-4.114-0.547-5.42-1.64 C30.213,36.867,29.533,35.52,29.48,33.92z">
+                          </path>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <span> Photoshop</span>
+
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg width="25px" height="25px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16 16C16 13.7909 17.7909 12 20 12C22.2091 12 24 13.7909 24 16C24 18.2091 22.2091 20 20 20C17.7909 20 16 18.2091 16 16Z"
+                        fill="#1ABCFE"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8 24C8 21.7909 9.79086 20 12 20H16V24C16 26.2091 14.2091 28 12 28C9.79086 28 8 26.2091 8 24Z"
+                        fill="#0ACF83"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16 4V12H20C22.2091 12 24 10.2091 24 8C24 5.79086 22.2091 4 20 4H16Z" fill="#FF7262"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8 8C8 10.2091 9.79086 12 12 12H16V4H12C9.79086 4 8 5.79086 8 8Z" fill="#F24E1E"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8 16C8 18.2091 9.79086 20 12 20H16V12H12C9.79086 12 8 13.7909 8 16Z" fill="#A259FF"></path>
+                    </g>
+                  </svg>
+                  <span> Figma</span>
+
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="py-2 px-4 mb-2 text-lg whitespace-nowrap font-semibold text-gray-900 dark:text-black">
+                Front-end development</h2>
+              <ul class="py-2 px-4 max-w-md space-y-1 text-black list-disc list-inside dark:text-black">
+                <li class="flex items-center space-x-3">
+                  <svg width="25px" height="25px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#E44D26"></path>
+                      <path d="M26 5H16V29.5L24 27L26 5Z" fill="#F16529"></path>
+                      <path
+                        d="M9.5 17.5L8.5 8H24L23.5 11H11.5L12 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5H9.5Z"
+                        fill="white"></path>
+                    </g>
+                  </svg>
+                  <span>HTML</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg width="25px" height="25px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#1172B8"></path>
+                      <path d="M26 5H16V29.5L24 27L26 5Z" fill="#33AADD"></path>
+                      <path
+                        d="M19.5 17.5H9.5L9 14L17 11.5H9L8.5 8.5H24L23.5 12L17 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5Z"
+                        fill="white"></path>
+                    </g>
+                  </svg>
+                  <span>CSS</span>
+
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg width="25px" height="25px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <title>file_type_scss</title>
+                      <path
+                        d="M16.171,18.7c-.481.221-1.008.509-2.063,1.088-.4.225-.818.45-1.207.662-.027-.027-.055-.061-.082-.089-2.087-2.23-5.947-3.805-5.783-6.8.061-1.091.436-3.955,7.413-7.433,5.742-2.83,10.311-2.046,11.1-.307C26.683,8.3,23.1,12.913,17.17,13.582a4.469,4.469,0,0,1-3.751-.948c-.314-.341-.361-.361-.477-.293-.191.1-.068.409,0,.586a3.5,3.5,0,0,0,2.141,1.684,11.4,11.4,0,0,0,6.956-.689c3.594-1.391,6.4-5.258,5.578-8.5-.825-3.287-6.281-4.371-11.443-2.537a26,26,0,0,0-8.79,5.047c-2.844,2.66-3.294,4.972-3.11,5.94.662,3.437,5.4,5.674,7.3,7.331-.1.055-.184.1-.259.143-.948.471-4.562,2.36-5.463,4.358-1.023,2.264.164,3.887.948,4.105a5.832,5.832,0,0,0,6.281-2.544,6.3,6.3,0,0,0,.559-5.8,5.03,5.03,0,0,1,.716-.477c.484-.286.945-.568,1.354-.786l0,0a10.475,10.475,0,0,1,4.475-.989c3.246.382,3.887,2.407,3.764,3.26a2.157,2.157,0,0,1-1.03,1.459c-.225.143-.3.191-.28.293.027.15.136.143.327.116a2.535,2.535,0,0,0,1.766-2.257c.1-2-1.807-4.194-5.183-4.174a7.753,7.753,0,0,0-2.946.587q-.225.093-.437.2Zm-4.825,7.839c-1.078,1.173-2.578,1.616-3.226,1.241-.7-.4-.423-2.135.9-3.376a17.18,17.18,0,0,1,2.53-1.889c.157-.1.389-.232.668-.4.048-.027.075-.041.075-.041l.164-.1A4.658,4.658,0,0,1,11.346,26.539Z"
+                        style="fill:#cd6799"></path>
+                    </g>
+                  </svg>
+                  <span>Scss / Sass </span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg width="25px" height="25px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <g>
+                        <path
+                          d="M0,222.991225 C0,241.223474 14.7785318,256 33.0087747,256 L222.991225,256 C241.223474,256 256,241.221468 256,222.991225 L256,33.0087747 C256,14.7765263 241.221468,0 222.991225,0 L33.0087747,0 C14.7765263,0 0,14.7785318 0,33.0087747 L0,222.991225 Z"
+                          fill="#563D7C"> </path>
+                        <path
+                          d="M106.157563,113.238095 L106.157563,76.9845938 L138.069328,76.9845938 C141.108559,76.9845938 144.039202,77.2378593 146.861345,77.7443978 C149.683488,78.2509362 152.179961,79.1554557 154.35084,80.4579832 C156.52172,81.7605107 158.258397,83.5695496 159.560924,85.8851541 C160.863452,88.2007585 161.514706,91.1675823 161.514706,94.7857143 C161.514706,101.298352 159.560944,106.001853 155.653361,108.896359 C151.745779,111.790864 146.752832,113.238095 140.67437,113.238095 L106.157563,113.238095 L106.157563,113.238095 Z M72.07493,50.5 L72.07493,205.5 L147.186975,205.5 C154.133788,205.5 160.899594,204.631661 167.484594,202.894958 C174.069594,201.158255 179.93088,198.480877 185.068627,194.862745 C190.206375,191.244613 194.294803,186.577293 197.334034,180.860644 C200.373264,175.143996 201.892857,168.37819 201.892857,160.563025 C201.892857,150.866431 199.541107,142.581033 194.837535,135.706583 C190.133963,128.832132 183.00635,124.020088 173.454482,121.270308 C180.401295,117.941627 185.647508,113.672295 189.193277,108.462185 C192.739047,103.252075 194.511905,96.7395349 194.511905,88.9243697 C194.511905,81.6881057 193.317939,75.6097352 190.929972,70.6890756 C188.542005,65.7684161 185.177193,61.8247114 180.835434,58.8578431 C176.493676,55.8909749 171.283644,53.756309 165.205182,52.4537815 C159.12672,51.151254 152.397096,50.5 145.016106,50.5 L72.07493,50.5 L72.07493,50.5 Z M106.157563,179.015406 L106.157563,136.466387 L143.279412,136.466387 C150.660401,136.466387 156.594049,138.166883 161.080532,141.567927 C165.567016,144.968971 167.810224,150.649353 167.810224,158.609244 C167.810224,162.661552 167.122789,165.990183 165.747899,168.595238 C164.373009,171.200293 162.527789,173.262597 160.212185,174.782213 C157.89658,176.301828 155.219203,177.387252 152.179972,178.038515 C149.140741,178.689779 145.956833,179.015406 142.628151,179.015406 L106.157563,179.015406 L106.157563,179.015406 Z"
+                          fill="#FFFFFF"> </path>
+                      </g>
+                    </g>
+                  </svg>
+                  <span>Bootstrap</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" aria-label="JavaScript" role="img" viewBox="0 0 512 512"
+                    width="25px" height="25px" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <rect width="512" height="512" rx="15%" fill="#f7df1e"></rect>
+                      <path
+                        d="M324 370c10 17 24 29 47 29c20 0 33-10 33 -24c0-16 -13 -22 -35 -32l-12-5c-35-15 -58 -33 -58 -72c0-36 27 -64 70 -64c31 0 53 11 68 39l-37 24c-8-15 -17 -21 -31 -21c-14 0-23 9 -23 21c0 14 9 20 30 29l12 5c41 18 64 35 64 76c0 43-34 67 -80 67c-45 0-74 -21 -88 -49zm-170 4c8 13 14 25 31 25c16 0 26-6 26 -30V203h48v164c0 50-29 72 -72 72c-39 0-61 -20 -72 -44z">
+                      </path>
+                    </g>
+                  </svg>
+                  <span>JavaScript</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg fill="#0061ff" width="25px" height="25px" viewBox="0 0 32 32" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <title>jquery</title>
+                      <path
+                        d="M18.082 2.72c-0.608 0.9-0.971 2.010-0.971 3.204 0 0.858 0.187 1.673 0.523 2.405l-0.015-0.036c0.88 1.958 2.48 3.461 4.454 4.194l0.054 0.018c0.081 0.031 0.16 0.057 0.245 0.087l0.11 0.034c0.115 0.037 0.231 0.079 0.35 0.105 0.527 0.164 1.132 0.258 1.759 0.258 2.482 0 4.619-1.476 5.58-3.599l0.016-0.039c-0.992 1.246-2.51 2.038-4.212 2.038-0.705 0-1.378-0.136-1.995-0.383l0.036 0.013c-0.262-0.066-0.477-0.134-0.686-0.214l0.042 0.014c-0.317-0.111-0.572-0.218-0.82-0.338l0.047 0.021c-0.517-0.252-0.96-0.527-1.372-0.84l0.020 0.015c-1.755-1.2-2.891-3.191-2.891-5.448 0-0.968 0.209-1.888 0.585-2.716l-0.017 0.041zM11.151 5.126c-0.909 1.403-1.449 3.118-1.449 4.959 0 1.622 0.419 3.146 1.155 4.47l-0.024-0.047c0.278 0.548 0.559 1.011 0.871 1.451l-0.024-0.035c0.293 0.467 0.621 0.872 0.99 1.234l0.001 0.001c0.134 0.152 0.279 0.3 0.43 0.45l0.112 0.112c0.142 0.137 0.29 0.271 0.437 0.406l0.020 0.016q0.253 0.221 0.517 0.427c0.043 0.029 0.079 0.062 0.12 0.091 0.175 0.135 0.352 0.265 0.535 0.395l0.019 0.011c0.077 0.056 0.16 0.107 0.247 0.162 0.035 0.022 0.075 0.052 0.112 0.075 0.132 0.085 0.262 0.165 0.397 0.246 0.021 0.009 0.040 0.020 0.060 0.029 0.112 0.069 0.235 0.135 0.352 0.196 0.041 0.025 0.081 0.044 0.125 0.067 0.082 0.041 0.165 0.085 0.246 0.127l0.040 0.017c0.169 0.084 0.341 0.161 0.51 0.237 0.042 0.017 0.079 0.031 0.115 0.049 0.139 0.060 0.28 0.117 0.42 0.171 0.062 0.021 0.121 0.046 0.18 0.065 0.127 0.047 0.262 0.091 0.387 0.135l0.175 0.056c0.151 0.057 0.339 0.113 0.531 0.157l0.030 0.006c9.91 1.641 12.204-5.992 12.204-5.992-1.738 2.269-4.449 3.718-7.498 3.718-1.009 0-1.981-0.159-2.892-0.452l0.067 0.019q-0.283-0.073-0.561-0.162c-0.060-0.017-0.112-0.036-0.17-0.054-0.13-0.045-0.264-0.087-0.39-0.136l-0.18-0.067c-0.141-0.056-0.284-0.109-0.42-0.169-0.042-0.019-0.081-0.031-0.114-0.050-0.175-0.079-0.351-0.156-0.522-0.24l-0.257-0.134-0.149-0.075q-0.168-0.089-0.331-0.187c-0.031-0.015-0.056-0.030-0.080-0.046l0.003 0.002c-0.132-0.082-0.271-0.162-0.397-0.247-0.042-0.024-0.081-0.052-0.121-0.077l-0.26-0.17c-0.18-0.125-0.356-0.26-0.535-0.391-0.040-0.036-0.079-0.066-0.117-0.099-1.869-1.453-3.279-3.416-4.027-5.68l-0.024-0.084c-0.284-0.835-0.447-1.797-0.447-2.797 0-1.612 0.425-3.125 1.17-4.433l-0.023 0.044zM2.91 8.34c-1.199 1.892-1.91 4.196-1.91 6.666 0 2.266 0.599 4.392 1.647 6.228l-0.033-0.062c0.046 0.099 0.097 0.192 0.147 0.286 0.029 0.065 0.061 0.125 0.096 0.187 0.016 0.034 0.039 0.070 0.059 0.102 0.033 0.065 0.067 0.127 0.101 0.19l0.196 0.332c0.037 0.061 0.071 0.121 0.112 0.182 0.070 0.117 0.15 0.234 0.222 0.351 0.032 0.050 0.062 0.097 0.099 0.146q0.182 0.286 0.387 0.556c0.097 0.134 0.195 0.264 0.3 0.394 0.034 0.047 0.072 0.095 0.107 0.144l0.275 0.336c0.035 0.038 0.069 0.084 0.105 0.124 0.122 0.147 0.252 0.291 0.382 0.437l0.006 0.008c0.162 0.203 0.336 0.383 0.526 0.545l0.005 0.005c0.1 0.104 0.2 0.206 0.306 0.306l0.126 0.121c0.139 0.131 0.279 0.261 0.425 0.386l0.006 0.004 0.071 0.062c0.127 0.111 0.256 0.222 0.387 0.325l0.156 0.131c0.106 0.085 0.217 0.166 0.325 0.25l0.171 0.131c0.116 0.087 0.24 0.174 0.359 0.259 0.044 0.031 0.087 0.062 0.132 0.091l0.037 0.029 0.35 0.231 0.15 0.1c0.185 0.117 0.367 0.23 0.55 0.34 0.051 0.025 0.105 0.055 0.154 0.085 0.135 0.077 0.275 0.156 0.411 0.229 0.075 0.042 0.152 0.079 0.23 0.117 0.094 0.052 0.191 0.104 0.292 0.156 0.027 0.008 0.050 0.018 0.072 0.030l-0.002-0.001c0.041 0.019 0.080 0.039 0.12 0.059 0.15 0.075 0.306 0.147 0.469 0.219 0.039 0.015 0.070 0.029 0.101 0.045l-0.006-0.003c0.18 0.079 0.361 0.154 0.547 0.227 0.043 0.012 0.087 0.034 0.131 0.050 0.169 0.064 0.342 0.129 0.514 0.19l0.062 0.023c0.192 0.065 0.381 0.127 0.575 0.187 0.045 0.012 0.091 0.029 0.139 0.041 0.2 0.060 0.392 0.131 0.592 0.171 12.837 2.339 16.568-7.719 16.568-7.719-3.134 4.081-8.695 5.157-13.963 3.96-0.195-0.045-0.39-0.107-0.587-0.165q-0.357-0.106-0.709-0.227l-0.077-0.030c-0.17-0.057-0.334-0.121-0.5-0.185q-0.068-0.027-0.137-0.050c-0.185-0.075-0.362-0.151-0.541-0.23-0.039-0.012-0.071-0.030-0.11-0.045q-0.227-0.104-0.452-0.212-0.068-0.030-0.132-0.065c-0.117-0.055-0.235-0.119-0.35-0.179q-0.118-0.057-0.234-0.12c-0.142-0.075-0.284-0.156-0.425-0.234-0.042-0.030-0.091-0.055-0.14-0.082q-0.277-0.164-0.549-0.337-0.075-0.046-0.147-0.097-0.199-0.123-0.39-0.259c-0.044-0.029-0.084-0.060-0.129-0.091q-0.187-0.129-0.369-0.265c-0.052-0.042-0.109-0.082-0.165-0.125-0.11-0.087-0.221-0.169-0.331-0.26l-0.147-0.119q-0.213-0.171-0.419-0.35c-0.014-0.014-0.029-0.027-0.045-0.038l-0.001-0.001-0.434-0.395-0.125-0.117c-0.102-0.105-0.207-0.205-0.312-0.307l-0.122-0.125q-0.198-0.197-0.386-0.404l-0.019-0.020c-0.132-0.145-0.262-0.294-0.391-0.444-0.034-0.037-0.066-0.080-0.1-0.121l-0.284-0.346q-0.216-0.278-0.425-0.561c-1.796-2.276-2.881-5.185-2.881-8.348 0-2.053 0.457-4 1.275-5.743l-0.035 0.083z">
+                      </path>
+                    </g>
+                  </svg>
+                  <span>jQuery</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg width="25px" height="25px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
+                    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+                    fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <rect id="Icons" x="-512" y="-128" width="1280" height="800" style="fill:none;"></rect>
+                      <g id="Icons1" serif:id="Icons">
+                        <g id="Strike"> </g>
+                        <g id="H1"> </g>
+                        <g id="H2"> </g>
+                        <g id="H3"> </g>
+                        <g id="list-ul"> </g>
+                        <g id="hamburger-1"> </g>
+                        <g id="hamburger-2"> </g>
+                        <g id="list-ol"> </g>
+                        <g id="list-task"> </g>
+                        <g id="trash"> </g>
+                        <g id="vertical-menu"> </g>
+                        <g id="horizontal-menu"> </g>
+                        <g id="sidebar-2"> </g>
+                        <g id="Pen"> </g>
+                        <g id="Pen1" serif:id="Pen"> </g>
+                        <g id="clock"> </g>
+                        <g id="external-link"> </g>
+                        <g id="hr"> </g>
+                        <g id="info"> </g>
+                        <g id="warning"> </g>
+                        <g id="plus-circle"> </g>
+                        <g id="minus-circle"> </g>
+                        <g id="vue">
+                          <path
+                            d="M17.595,11.204l8.91,0l5.536,9.391l5.591,-9.391l8.831,0l-14.422,25.359l-14.446,-25.359Z"
+                            style="fill:#435466;"></path>
+                          <path
+                            d="M8.089,11.204l23.952,41.845l24.126,-41.845l-9.704,0l-14.422,25.359l-14.446,-25.359l-9.506,0Z"
+                            style="fill:#4dba87;"></path>
+                        </g>
+                        <g id="cog"> </g>
+                        <g id="logo"> </g>
+                        <g id="radio-check"> </g>
+                        <g id="eye-slash"> </g>
+                        <g id="eye"> </g>
+                        <g id="toggle-off"> </g>
+                        <g id="shredder"> </g>
+                        <g id="spinner--loading--dots-" serif:id="spinner [loading, dots]"> </g>
+                        <g id="react"> </g>
+                        <g id="check-selected"> </g>
+                        <g id="turn-off"> </g>
+                        <g id="code-block"> </g>
+                        <g id="user"> </g>
+                        <g id="coffee-bean"> </g>
+                        <g id="coffee-beans">
+                          <g id="coffee-bean1" serif:id="coffee-bean"> </g>
+                        </g>
+                        <g id="coffee-bean-filled"> </g>
+                        <g id="coffee-beans-filled">
+                          <g id="coffee-bean2" serif:id="coffee-bean"> </g>
+                        </g>
+                        <g id="clipboard"> </g>
+                        <g id="clipboard-paste"> </g>
+                        <g id="clipboard-copy"> </g>
+                        <g id="Layer1"> </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <span>Vue.js</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg fill="#0061ff" width="25px" height="25px" viewBox="0 0 24 24" role="img"
+                    xmlns="http://www.w3.org/2000/svg" stroke="#0061ff">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <title>Vuetify icon</title>
+                      <path d="M7.094 0L12 11.596 16.906 0H7.094zM1.5 3.5L12 24 22.5 3.5H17L12 15 7 3.5z"></path>
+                    </g>
+                  </svg>
+                  <span>Vuetify</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg width="25px" height="25px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <title>file_type_tailwind</title>
+                      <path
+                        d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z"
+                        style="fill:#44a8b3"></path>
+                    </g>
+                  </svg>
+                  <span>Tailwind</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="py-2 px-4 mb-2 whitespace-nowrap text-lg font-semibold text-gray-900 dark:text-black">Backend
+                technology</h2>
+              <ul class="py-2 px-4 max-w-md space-y-1 text-black list-disc list-inside dark:text-black">
+                <li class="flex items-center space-x-3">
+                  <svg width="30px" height="30px" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path fill="url(#a)" d="M0 0h64v64H0z"></path>
+                      <defs>
+                        <pattern id="a" patternContentUnits="objectBoundingBox" width="1" height="1">
+                          <use xlink:href="#b" transform="scale(.002)"></use>
+                        </pattern>
+                        <image id="b" width="500" height="500"
+                          xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAKNtJREFUeNrs3V1wXNdhH/CzAEiKlChSclw7E6uE4mamnnYqKu2DHzwWqExix40jKqmb1G5M2OPJyIkdQW3SGXemFfRQ5yGZCdVJa7vVWGBa2VakSFTUxI0niUCPH/Jmqi99UgMmsWVJlkSQ+FzsR+/BniWXIBbYXeznxe8nrRZaALvYs3v3f893oVqtBgBgtBUEOgAIdABAoAMAAh0AEOgAINABAIEOAAh0AECgA4BABwAEOgAg0AEAgQ4AAh0AEOgAgEAHAAQ6AAh0AECgAwACHQAQ6AAg0AEAgQ4ACHQAQKADgEAHAAQ6ACDQAQCBDgACHQAQ6ACAQAcABDoACHQAQKADAAIdABDoACDQAQCBDgAIdABAoAOAQFcKACDQAQCBDgAIdABAoAOAQAcABDoAINABAIEOAAIdABDoAIBABwAEOgAIdABAoAMAAh0AEOgAINABAIEOAAh0AECgA4BABwAEOgAg0AEAgQ4AAh0AEOgAgEAHAAQ6AAh0AECgAwACHQAQ6AAg0AEAgQ4ACHQAQKADgEAHAAQ6ACDQAQCBDgACHQAQ6ACAQAcABDoACHSBDgACHQAQ6ACAQAcABDoACHQAQKADAAIdABDoACDQAQCBDgAIdABAoAOAQAcABDoAINABAIEOAAIdABDoAIBABwAEOgAIdABAoAMAAh0AEOgAINABAIEOAAh0AECgA4BABwAEOgAg0AEAgQ4AAh0AEOgAgEAHAAQ6AAh0AECgAwACHQAQ6AAg0JUCAAh0AECgAwACHQAQ6AAg0AEAgQ4ACHQAQKADgEAHAAQ6QI+duv/9J7Or09llMrvMv/SXfzWnVBDoAKMX6AvZ1YmGmy5ll+ks2OeVDgIdYDTCfCq7eqnJty9kl5ks2C8qKfJkTBEA+8x92eW7WejPZZdJxYEaOsBo1tAbLWaXs/GS1dgvKznU0AFG07Hs8mh2WchOAqYVBwIdYPSD/cks1C+m2j2MHE3uQO600eTeTBw4F0fELyhN1NABRlccOPfXaeDcccWBGjrAaNbQGxk4hxo6QA7UB85dNHAONXSA0a2hb/VyqC1MM6+kUUMHGF33xJOF2L+uKBDoAKPvTBbqs4oBgQ4w+qYVAQIdYPSdUAQIdABAoAMAAh0ABDoAINABAIEOAAh0ABDoAIBABwAEOgAg0AFAoAMAAh0AEOgAgEAHAIEOAAh0AECgAwACHQAEOgAg0AEAgQ4ACHQAEOgAgEAHAAQ6ACDQAUCgAwACHQAQ6ACAQAcAgQ4ACHQAQKADAJ2bUATD79T975/KruJlIbucf+kv/+qyUgFAoI9OkM9kV7PZ5VjDzU9mt5/LrmcEe2/98lce+LFDEwe+MFYY++mxQuH2cilcubq68h//6DdefFrp9O0YOJ1dncwul9PJ7IJS6Uu5H0+fPdPp82cxlr/PneFWqFarSmE4a+Rz2eXEDj8WD7Cz2cE1q8S679PnPvbEnbcd/fR4YbwQD5F4nJTL1XDlykpY2Vh/5crayi/8r3/zv/+PkuppkJ/d5hho6WQ2HUMv9eNvzf6Wwj6oSPjcEei0eSBNpg+xB9r4tUvpA+68Ety76blfnDl265EvHj546HC1kt1QLYR6oMfrlZX1UCyWQiW7IQv2b7965c3TF77wbTWW7h0DJ9MxcN9eTmYFescViVj297T4uTOdPfd571qBzo0HUmzeimfFj+7hbi6kYL+oRNv3ybkHP3D74VueOXrkyLs3D4kY5NsEeiW78criWvxGPHxCuVouLa+v/e4ffv6FLyjFPR8DMaAf7sbJrEDveUWi8XNnWleIQKd2ME2ng+lYl+7y8fjBqJ+rNb/y5AMnDh86eO6O22794PjYWHY81AK8WaBn/w3r66WwtlKMeZ79u/mfsF7auLy6sf7QM5//Y/3r7R8DOzXxdnQyK9D7VpHwuSPQabN5q12L6eA6q6Sb+9RTDz6RBfmZQwcmJgrVsc1KdyuBHq+Xrq6FSqVSO4gKhXQdwnJx/ZX1UvGnnv38i5eUcEvHwFzYeaxIO671r2f3He/3jEDvW0Wi/rkTy3/Ou1ug75cPscnQefNWu/RzbeOT/+PnZ47eeujR2w7fcjwGeaxltxvopY1yWF5eDynLbwj12L+e1da/9dRnn/uw0m56DMQP/ft6dDJ7sUf3PfKBnk6iZntcPi+nYPe5I9Bz+yHWzeatdunnynz83D8/cduRg39x/Ojh94YU4p0Gevz/1ZVi2MiCvZblhc3rQkr1eF2qlktX11Z/6w8/94KWksEfA/s60NNJ1Gy/Wi0aWkxm9a8L9Lx9kE2ng+nEgP+UfdvP9emnPzp/7PbDH5wYGytshncXAr1SqYblpfWweUNDf3pjwEexf325uPbRZz73x9/Z58dAt5t4BXrrJ1EzAyr7xfS6n9W/LtBH/UNsKvS+eauTA2zf9HP9ytc+8tvHj93ymwcPjE8UQgzwFN5dCPR4XVzf2Bwkt13Te2Oox9uvrq9eLJY2TmfBfmmfHQO9Gisi0Hcu+2Zz+QfB9FqBPrIfYpOh/81b7cp1P9fHn/rQLx09evDLR44cqPWTxyDvQaDH/ywvxwFyYdtQv1ZrTzdUq5XqUnHtG0899NzH98Ex0K+xIgL9xrJvZS7/oJheK9BH5kNs0M1bnXghHWALeXgNfvl//syJw4fHzx87fvDkjcHdu0AvlcthdWWjaYinyvoNtxfLpdXl9bV//41fP3/WMSDQu1j2Z4e8IlFn+WqBPtQfZMPUvNWJx8KI93N98tkPPX/7sYkHxsdr/eT9CvT4TxwgF5eGbaXpvfH21Y31H6wU1z/2h7/+wndycAxMh+EYK7LvAj0r+9kRPIkyvVagD92H2DA3b3VygI1c//onnv7pmaN3jP/OgQNjE40B3c9Ar2RhHpeF3Sm8G2/fWmu/srpyIau1n8mC/dIIHgNTYfjGiuyLQO/BXP5BML1WoA/8Q2yUmrfaNRL96x//+s984NZjhRcPHSkcrwV0IQwq0GsD5Eqb09iuh/jO/elbQ71ULpeWimvnvvbQc59xDAj0Xcp+MvRuLv+g5Kr7T6CPTpjH2sh+6CMcynmkn/j6h04cuCWcu+2OQsOH2eADPU5jW0219FZDfLvbV0vFy6vra499/deGt399Hx0DQxXoHa55P2pGvvtPoI9GkI96P3knhmoe6ZlnP/TErXcUPj02HrZ8iA4+0ONtsYa+USyFVpvet97eGPBL66uvrG1sTH/j185/xzEg0PM8l7/J545lZAV6Tw6kPPWTd+pSqq0P5AD75DMfnjl8NHwxq5kfbvJWHopAj9draxvZ71ZCp/3pjaFeidPc1te+/Qe/+uyUY2B/Bvp+mMu/gwvpc2feO02g7/VA2g/NW0N9gH3y6Q9/4MCRMJeF+Xt3eSsPTaCXy5WwnoV68xBvvym+VK6Urqyt/O7XHnruC46B/RHo+2kufwtMcxPoezqY9rqlowNsT0H+sycmDoVztxytfvDm5vXhDvR4XSyWQrlU2bUGvuPt2wyoWysWLy8VVx/6+kPnn3YM5DPQ87rmfRdsdv9l5T2rKAR6qwdTbFqcC/uzeauTA6zr/Vy/8rWP/Kfb3ln5d+MHwkQbb+WhCvRKdr2+VqwPj9tzf/rW4F9aX/u/K8X1n/3GZ89f6sExMBVGfyrUSAb6fp3L3ybLyAr0ls+MLzqY2i+6bjXBP/j4z81ltfIz7/jxcrtv5aEK9Pit0kYpu1RaCu/67e3U5jcq5cobVxY/+uznXvzTLr7/Y5Br4h1AoPdzD/eceMSiNDcaUwQ3OC3MOzLTjTv5xf/889NZqJ1ZXxoL5eLoF8r4xHhav732/9tfb54lXLvh+k3V699qcvv6xsbYG1cXv9jFP/m8MB9YZeK0MG/b76UWVQT6tiYVQUe6EgJZ9k0XavXlcPnvJnJRMBMHxlJW11N8a4hve9OO13WvLb4dr+6577c/uOcPtRQoRrAPzrQi6LgShkBn2GxGeaHWBF3MaunF5cLoH2Bj2fMZK1yL5OqWr6pbb0/BX6+9Vxtq76Ghlr68thb70esPc7wLf6qazmAdVwQIdPIT6KmvuB7sS6+N5+J5jU+MXe9zbwjpVsI7NGl6/9u33/CGAQQ6Qx7qKdg3lsfD6tvjuXhOYxNjN2b1luubm+Cb96e/vbIUiqWSNwsg0BnW5Av1ZdCvBfvyGzmppY+PXW9Yb6EG3qz/vFSphNevWFsDEOgMdaBXa9HVEOyV4lhYfj0fA+QK42PXprR10p8e/31r+WooltXOAYHOSNTSbwz2lTfHQ7Wcg4NtrBCntV+bt95uf3o5K4Q3l694jwACfUQ9nl3uTYtX3J1dPhVqKyXlL8sL1/cRbwz2aqUQVt7KSS19bGt4t9KfXrt+/epiKG9u+rKvLKZj4IKPgr6LZf5gdjkValuaMuQmFMFQH0zTjXuRp6/nTt3//rgAyEzI237UhVQxLzQEXKGWaMuvj4dbjpfD+IHRXtkwjguoFCqhkj25sfhEq+kJV9MJTLVWiy9s1uMLqUiqoVQubza378OT2dn6fgH7bPvQQdpuadX5tJKdzWLU0GnzYIpLqU41hnmj+AGXNiiIc4fP5eepV2uhVti+xp6XAXIhNr1vTmPboT99S9P7G0uL++1k9u7sPX7D5j9pz4BJtcWetobEsj253Trp8fMou5xONfaXFZcaOjsfTLPtrE2cAn+64cx5tDeUubb+Sj3UCzfU2Ncuj4cjd5bDxC2jv/9ArKXH8+nNM+pqbTGda5X17ItCWjK2kJ3grBSLYXF1eb/WDG86mY3Hidpi151Lnz8LLXzuzMfQ12Kihs72YtPiZKcbDcQDLLvE2vqn0onBaAf6tVHuN9fYl17LyTlo9lwq1UqTQXHhhn70Hy7nvna+WTPM3sOTre6gtaW2eMlHyJ5aQ2KL4HQrYb7lNai3mDyuGAU6TZoWO5WLJsnCzsG+sTK2ecmDWEuvbbV682rt9ab3lY31rIa+nvea4WSne1ynk9n4nn9kpE9mB3MS9anUtTe/h8+c2P0Xx/LcHQYzcNGiDA00uQ/OC6mG0VUNTZLxbPvJ0QrzenW10ND8Hm5qir/66kS4872jvx1bfGrl7J/x7J9aphc2m9ir15rgq+H1pbevbbd6beGZ/JzMznZr293YupWa4eOJwcM+XnZ0w2DDZj4795mpUNtO90T99frS9BPzzVpMsqup7DWIvxNbWfrRDL+YHgs19IGb6eWdp9r6SE31uT4Arno93Lepscd1VdYW8/HWLVXLmzX0a/80TGG7ur66uTJcIRSu74te3xt9tD2y15phC7VFzfDbe3m3FsEsyCezS3xtXgrXt5OOO/G9lN0+F7+/U4tJOqnqR5ifbrebQKDTk9pJn96I8yNVKoWtI9u3Cfb0vc3FZnIyJbtUKdVCvaE/Pf7/5dWlhh3oCnkJ9pc7HSvSRrAvpJolN5vdIciPZ5f42vx1aL6Vbtyz/WL2c7M7tZb0+IQqdtOc7PYJoUCHrrq+Oty2wd4Q7uVSIRcbt2wGeiinAXLX+9Ovri+Hcnbb1h3ochDs+jyHsPyzgI7df/FEqJXuitic/mj2Owvp97bTiwpLxwP49gt96AxVDf3asmgpzRu70q8tvrL5dSGsZIF++I7y5upro269shEOj9eeSLlSDVeLq9eWlblppZ0thVItFLx36FgWynGGzPMd/OqJ9Hu9fgPG5vWZ1I2IGjqjE+hh2/XcC/WMb6i1xxrtUk42bom18Y1KefM5XS2uXJuTHhpq5I1by26tscMeHB/ivy3O2JkU5mrojHKoV5vU2NPt9Rr72tVCOPIjhTCeg3fyWqkYChMHN6eqbT7dauH6yUuM7fqTblZjh/y4aelrBDojFeYNad1GsC/+IIQ73zP6Tz/G9vLGWrjW2XDtebcS7JALl1KQzysKgc6o1863LPvaSrC/8YP1cOj2iXDb0dF/O1dSUBduqoG3EOwwutpe+pqb6UNnqPK82bKvN89Hr/Wxr64XQ3GjFF772438HJT1fvFt+8zT1yF9rQ+d0VdfLVCYq6GTp0TfWhndqcYea7NXl2vLoi5fKYcrb5fCseMH81MWqRCuLZy3TY291lihyZ2RFPvJ4+j1i4pCoJO7QL/enN5KsC8vF0O5fH11me8vFMOxk/kI9OrmfuljNxRCtSHLrzdpNBYSjITYTz5r5Hr3aXJn6GqmjVPWCoXtm+LLlUpYWrpx05LieiX88AfFXBRDbRnYyq5N7fXvwx4s7OF3m22Ic7nJz9b3WxfmAp38h3lrwX7lytq2d/GDv1vPau35aIIuVcrX5+A3BHvQh04XfWn6iRjoD4b2l2uNP99spbit/eEvpCCf7cbOkgh0RiHQWwj24no5rK2Vtr2LGOZv5KSWvhnq5XKTBWVuDHbYY6jHXctOphr0btvQxu8/kv3O5A67r8Xb7w21/ervjTtLmlPee/rQGSKtTVm7fHltx3t549X18I53HAqHDo7++epGuRQmxidqZ97bLihT224VWhR3o5tvEuqbWy/HHdVCbROXM9v82ObWq+lnd2Swmxo6+72GvsuUtatXbxwI16yW/ur3VnNTLGsb6zdOYdumxj5CTp66//39WGr0pANqWw9k5X96l9r6QnaZTrXrl9PNcUT6vdntM62EOWro7Pc8T3uRNBvZHnciW15qbb75Wz8shne9qxQOHzkw8uUS+9LjIMCJsbHNjViuTWEbzZXi4k5dF7NQ6cko5+x+J0Nt69T7HFFNPZ+VU5z7PbtTM3hqTndipIYOndfSm41sv3J5PVQqrYfX3/3NSm6KZaW41nTr1BEc5R536XoyC5X57DLVpSA/nl1228ub687UT6z61GKCQGd/hfmNe543Bvv6ejmsLJfaururVzfC0tV8rCAX90tf2yg23RN9RMXgfSkLlLlUs+40zGO/cKxpPuwgasvmvuYp2KcVh0CHrtbOmwX70mJnwfy3f7Ocm+KJu7HF5vWtW6fmYEhcR7XFWLvPLjHIfy+FE53peosJAh22TFmrBfvKUimsr5U7urvVlVJ48821XBRNXD2utrXqzXui56y2eHqXIJ+M4RNr9ymM6I6utJgg0GHbke2xz3zxrb3NK//+9/NTS1/Paumlcummke45qy0+n2qLJ7cEeewnnw36yXtN/7pAhy7UzhunrMWm9iultgbCbScuRPP9V/MT6stxgFy4cQpbTmuL3021xanUx7uQavH0nv51gQ57zPN6k3tcr71UCVff7s6gttdeW87VkrCxph7y04e+W20xNq0/GfSTD0Jj/7opbAIdWk/0QuH69Oq3X+/eEq4xzL/3/au5Kaql4mqtMaMQbM5CPzS2mGiGF+iwW6Bf70MvrlXC+mqlq3f/2uvLYb1YzkVR1QbIrdYb3r136JfYYrKQxjIg0KF5Db3eh/7Wa73ZYOV7r+anlr5SXN9cPU8FnT7b7F+PUwZ3m5GAQGefh/qVN0uhvNGb/u4fvrkSrmzZR32UXVlbsn0qg9J0RgICfT9Z6NPjzI9awcQR7Utvl3r6GN979Upu3kjFcimUquXDDikGSP+6QN/X5vrxIGlP4ksjVC7zl1+P09R6XKvNauh5qaUXCoXqc59/8ZtduCs7aHVmsUv3cz4HZaF/XaDvO59KQdsvp7v4odNrZ4urlb7se/r/Lr2VizfToYkDv9/Fk8xFh+fATs7j/bycg/LQvy7Q94W4n/CpXmwZuUst/WJ2NZldzg17AT31C9+6fOTo+PtuuXXslV4/1nqxFN54a2lk30zjY2OlWw4e/A9/9pt//htdep/EGvqMw7QtMYBnu1j+U+lzIg/0rw9AoVqtKoUkNRV1eyWq2OQ92+8gb/L84oEVt5js+rKZ2fPr6sisf/7lUzPrq9VHN9YqPeuTmxgfCz/5vruy6/HsQBir7cVeLdS2F4/XlXRdrU0T27wO1Rv+P/5n622b16H+/9dviyPSK5VKKGd3vPU67ncexw/c9L30df04jU3shw5MfPvP/u1fTPXoPTIZ7Ce+m8V0TJ/t0WswlV6DPK1T/3gqM107An0kA30xhefZYXsTp6aws938wOh2oNd95L+eemL1avnTWa715P7vevcd4a533TESgZ4F+SsHJiZ+6k9mvnWpD++RPIZKN8SWrpl+HNNpW9j4mZSXFfJ6eiKEQO9VoL+QDvqFEXi+M934wOhVoEcf/W/3n9goVs9lwd71WmOspf/T9/39MDE2MbSBPjZeuDwxMfbYN2f+/OwA3iN5C5VOXUjH9MU+l//xVP552us9npBO93kskUAX6G17OR308yP0nI+n2vqZYQ30up/7yv0fKK5Wnllfrby7m/f79+48Gn7iPe8aukDPfqs0PjF27k8e/tZn8vAeGeHwicf0+QG/BpMhf10hF1KwLwQE+hAF+mI66OdG+LnvqX+9H4FeF/vXV69Wfqdcqk506z7/2T+cjE3aQxPoYwfChbFCOPPC5/7sUl7eIyNms8sse1/PDtlxOhXy1RVyKSvjSekj0Icl0B8LQ9hPvocy6Kh/vZ+BXvez/+XU82tL5Qe60b9+7LbD4R/f/WMDD/QwXv1BYaz6sed/7Zvfydt7ZITEfvLZYa455qwr5BH96t1h2lrnYj/53fEMPk8jN2PTYjpjfiwM+bzkb/76Sw/edsfE3YdvG9tzv+bi0mpYXF4d2HMpjIXV8YPhkfOf+9MfHeYwr79HsquTo/AeaVN9aunQNwOnAIzH6eM5KPeLATX0AdXQR66ffA/l0XLf6SBq6I1i//raSuXFvUxzO3br4fCP7n5Pf2vo1ezW8fJXn/7VFz8zou+RyVRTHOX+9ZHuMkuvQTxOHxjF1pB4AiV9BHq/A33k+8n3UC679p0OOtDrPvKlU7+9tlT5zU771//Be94V3nns9v4E+ljpYqVQPv2Nz7x4KQfvkakU7KPWv56bLrP0GsTj9J4R+HOHZn0OgZ7f4Ipnik/m+aDfY/k06zu9kJXN1DD9rR/+/VPz68vlD7bbv37o4IHwkz8x2dNALxVKl8uFjY8+9ekXvpPTYyi+R4a9b3ckppbm8DUYysGGAj2/oXWx4Qw3twd9F1oyGuev3z2MZRTnrxfXKn+xtlx5bzu/N/nud4YfvfOOrgd6OZRLG4Xib/3B9HNnc/7+OJ7eH48O4Z+3L7rMhvQ1sFqcQIe9+bkv3/9La6uVL7fav765JOxP/HgYi2NGuxDoWc28WioUv/XVM898eJ+d+E2G4enb3ZerlA3Ja6BiJNChu+Iysllt/Uwr/et3vfMd4cfe8Y49B3pWI3+lXNj4qSf/9XOX9mu5D0Hf7r6vGQ7oNbiQyn3ep49Ah66rLyPbSv/6ve+9OxyaONhRoMd+8izMH/rqJ559ehDP87Nzn4kDGestEpe/NP3EwKcGDWDutJXIbn4NpkPv+9cNeBPo0D+tLCMbR7u/990/2lagx37yYmH9d5/4+DNfGECI1/tNt1uff/NDNgv2gX7I9mlt8qFYrnWIQ71X/esGvAl0GJy4jOzacuWLpWL18Hbf/yeTk+HwwUO7BnrsJy8W1r5dDqUzT/yrP+p783oW5q3WvDY3xsiCfX7AoTIZur82uUBp/zXoVv+6AW8CHYZDs21abz9yJLzvPXftGOjFsbVXNsLG9H//pWf7Pg0tC/Kp0Nn8782BSlmwLww4VLq1jGzftjXNYbBPhc771w14E+gwfJpt0/q+u+4KR285fFOgZyF+eaOw9thX/uUzfR85nQX5ZOjOCm2bayxkwT7QINzDVr4D2dY0p8E+HVrvXzfgTaDD8NvsX1+rPL++UvmR+P+HDhwI90zefS3Q43Kta4WVr37pY0/3fbnWXfrJO7WYautzAw6UdrZpNfCqd6/BTv3ryl2gw+iJ/esb69XZ0kb12Ik73xWOHjkSyhPrF0qhdOYr/+KZQfST93qXs81a1xD0r++01PBi+t5Zzes9fQ0mQ60F6HQ6cYzv9znjEwQ6jLxPPPczk0/9wrcWBvHYaQpau/uQP54+kOujyttpmj+Xgn1hkGWemoCn0/OOgTIfhnxbUxDowHZB3k4TdGMte3prGKfBc+0MfLpWEx50/zog0GGUwzzWqtvpJ29pOlob09sa7zf2r5vTDQIdaCPIY016LrTeT765RnkWuGfbeIxOFha5kILdaHIQ6MAOITsZ2l9o5VwK2ct7eMx2FxbZ02MCAh3yGuSdLIXa1dpyP1oFAIEOeQ7zdjcr6Wl/dod/z8CXkQUEOgwqyGONuO0R51lwzg5xi8H0oKe5gUAX6NCvIJ8MnfVZ931OeId9+o+nv1X/Ogh0yGWQdzqqfOCrtnWwOt1QLCMLAh3odiBOh/bnfc8OWyB2MC/+5RTs894FINBhlIN8KrS/relQ7Hy2S0tDuyvX7Wmb1rTsbTwpOpluimUTBwWe17QPAh16GXqTof2104dib/I2Q7adteXbXkZ2y8lDrO3PpzCPjx3HIMSWjNMWugGBDr0Iuhjk+6ZZOnUnxOfcav96y9PusvuOQR1Pjqa3/nzDgL0Y7lNCHQQ6dCvYjqcaZDvT0HIxcKzD/dnPZc99epcToziA8N5Q2y3upS0nBZtjDLKfi2U+mX096V0IIYwpAtiz822E+eMphOby8MRjE3qaHx9ry+da/LUzWRjvtMpcDPvHttS8432/kFoDZht+7kRqKQCBrghgTzXUGCat9CXHaWh3ZyGVy3XQY/9/qnWfCrWuhN08nJrOt5bnyRTaW5vl5xqC/NpjpnI96Z0IIUwoAtiTmV2+v6+WR03P82SL0/Vmtim/4+l+tvaLx/uKJwCLW4I9Pt6UtyGoocNeNWtqj8HzSOzf3Y9zsVOXQgzgx3b4saY1621q7xdTeB9LXzfeh+lrINChc6l5uJnT+303sob+9Wahvl1XRT2st9a657L7iqvWXUq19dDwc/PejSDQYS+O7xBmQua6lssijS/YXL8+jaDfaqF+IpBGw8ca+3lFDPrQYT+0JEymmmy8xK9PhuZ924uplryQrucHMM97Nj32XPr6sfT3hHTbfOqjj1PbHrPLGwh0GPYgjqH15DaB29JiKun346Cze9p42GOpBhwvZ9L9XEpB2pdlaWNAp6Vz51PtO4b68VRjr68WF8P8XD+2lIVRockdhtd0k8A9vUuQn0wrrT3ZZpg3cyIF6EJq5u65dMJyMoV67DP/bnZ5O7s8n1oZHtxpcRpQQwfyWKvvlngy8Wh9w5Re19ZTU/p0/SQl1MYsXLQpCwh0yHuYn+5hmDeKm6PM7dZS0IMaO7ADTe6QjzA/nkK2Xx7oV/M7oIYO+0kM1902R4lrocdBZgthm6brdFJwMl2mUk18JzNxTXZN4CDQge6Z3uF7cW3107tN70rBPJ8uZ9N0t7M7BPux9LhnFT8MniZ3GHFpwFiz2nmccjbVyVzttOFK7Cc/1+GJBCDQgTYc3+F7c11oEo9z2RebfO8exQ8CHeiOqV7eeTohmNuhhWDKSwACHdi7hQ5r7+2wXjoIdGCAgf5wVoOe2esDpM1m4prqF7Zc4sh5c8RhCBjlDqNvt0D9vRTqsZYdg/lih4PkZhU1CHSgR2IfdxbYsbZ83w4/FtdjfzhdYr93SDXshXB9Z7XLtn0FgQ4MVqw9v9Tm79y39SQgBX19C9VrF0uvgkAH+lNLj3uEP16vge/Rsa1hn913DPnYZH8+eywD5GAIGRQH+Qn12E/+WI/uPoZ83B/9+SzcF9KuboBAB3oU6rPZ1b2h1j/eK7E//sks1OfT+u+AQAd6EOqxz3sq+/LuVGN/uUcPFZvkhToMCX3okN9gXwi1wXLxUl/RLa77HgN4qiGU9+KedP8zShwEOtCfgJ8PtXnoN0kbvNS3T51M162G/XTcG902qiDQgcGHfX1a2vyWoI+7rcXLmR1+/Viq8Rv9DgId6FQWumdTjbrRbDcWiUlT1M7HGngK+xNNfvSkQIfBMigORjvMY991nHt+35bLS918nNQfr58cBDrQI8d3CPuTXX4sfeQg0IEe2WlJ1mnFAwIdGA0LOwV6l+eIT6u9g0AHeiCNTr/U5Ntx9HlXFn5JS73uNNJ93qsBg2WUO4y+uezyaJPvxYVfFtJI+Ll290HPfm8y1BaO2SnML9mNDQQ6sHcxrGdSjbxZTT0G/qNZQMdlYGOo1wP4csPX9cVl6l/Hy4kWHn/WSwACHdijuEJbWgCmlalq96TLA116+Beyx5/zKsDg6UOHfIT6fHb1qT4/bKztTyt9EOhAd0M91pRPheaD5LrpXHaZsn47CHSgdzX12Pcdt01d7MFDxH3WT2WPMy3MYbjoQ4f8hXoM2tl4SdPNYv/6VGg+aG43scYf12mfM5odBDrsK3Hu9zDUYFMz/Fz6myZDbWvUqfTt+napW803XC+0O9UNEOgwanaqrZ6NG6cMU7N0CuaF0MdFYNKiNrM71PyBLtGHDp0HZAzrZv3UcSGWi6nJe19KO8HFE4j7mvyImj+oocPQOB+ar6IWF2V5MoX6zH7pf86e71SoNfPvtijNnLcPCHQYFrNh52VRQ6qhfjcLunMp2Ftthp8csSCfTCF9Xws/fsmCNNBdmtxhD1K/dKsLusTgj+uqz7ZYyz0xCmUQ+8nTc/rrFsM8dlOc9u6B7ipUq1WlAHsPtelQW1O91alhl1Jt/fw29xVHns/vcF8Pbvd7I/S8T5v+BgIdhrqmmsLtTBu/Vp/jHQM8/v5UC79/96CnkqUWhPhc72nxV2Kt/Gz2d896p4BAh1EJ9pMp7O7rwd1fyEJxaoDPbTI9t3Y2d2l37AAg0GGogv10Cr9u9oWfSsu79vu5xNaDmbDzNq03nXxkl9lB/L0g0IFehOFsm0HYTNyq9PQA/v7pUBvN3+qJyaUU5HNefRDokLdQnwytTXFrJm5V2tfdzVI/efyb2+k6iJvCnNW8DgIdBPuN+j6YrMPBfS+EWj/5glcZBDrsp2CPoXk6XeIgusbm7NhkHad1zYfaDmf9rJXHE4d2ugdeTkE+71UFgQ4M/gSj3QF8iynI55QeCHSgs/CdCrX56uf3ukBLm8u11j0eaoPe9JODQAc6DN/ZcGPfdkfh2rCt6cNt/FqchjatnxwEOtB+iNf72qd3qEW31fydtjWNYd7Ocq3T+slBoAOdB/pcaH20+Y4D1NrY1rTxRMFyrSDQgS7V0GOgttM0fsNSq5ZrBYEODE+wt7s+/GKqjYfQfj/5jN3QQKADvQ32XqwPHzXdzhUQ6EBvQr2+UcqjXbi7xXSCYLlWEOjAgIJ9MrQ/h7xR7CefNQ0NBDowHMHebjO8bU1BoANDHOyzYed12C3XCgIdGJFQnwy1RWimQm3Tl4XsEvvG42C3Of3kINABAIEOAAh0AECgA4BABwAEOgAg0AEAgQ4AAh0AEOgAgEAHAAQ6AAh0AECgAwACHQAQ6AAg0AEAgQ4ACHQAQKADgEAHAAQ6ACDQAQCBDgACXSkAgEAHAAQ6ACDQAQCBDgACHQAQ6ACAQAcABDoACHQAQKADAAIdABDoACDQAQCBDgAIdABAoAOAQAcABDoAINABAIEOAAIdABDoAIBABwAEOgAIdABAoAMAAh0AEOgAINABAIEOAAh0AECgA4BABwAEOgAg0AEAgQ4AAh0AEOgAgEAHAAQ6AAh0AECgAwACHQAQ6AAg0AU6AAh0AECgAwACHQAQ6AAg0AEAgQ4ACHQAQKADgEAHAAQ6ACDQAQCBDgACHQAQ6ACAQAcABDoACHQAQKADAAIdABDoACDQAQCBDgAIdABAoAOAQAcABDoAINABAIEOAAIdABDoAIBABwAEOgAIdABAoAMAAh0AEOgAINABAIEOAAh0AECgA4BAVwoAINABAIEOAAh0AECgA4BABwAEOgAg0AEAgQ4AAh0AEOgAgEAHAAQ6AAh0AECgAwACHQAQ6AAg0AEAgQ4ACHQAQKADgEAHAAQ6ACDQAQCBDgACHQAQ6ACAQAcAWvP/BRgA0cA20JIE3icAAAAASUVORK5CYII=">
+                        </image>
+                      </defs>
+                    </g>
+                  </svg>
+                  <span>Node.js</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg width="30px" height="30px" viewBox="0 -183 512 512" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <defs> </defs>
+                      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g>
+                          <path
+                            d="M476.713442,60.4626238 C476.252384,60.5550082 475.791324,61.5703742 475.791324,62.1238178 C475.69894,65.8148802 475.606556,75.5972748 475.606556,82.241187 C475.606556,82.425956 475.882846,82.7946306 476.16,82.7946306 C477.54404,82.887015 480.866428,82.9793996 483.726894,82.9793996 C487.69511,82.9793996 490.00213,82.425956 491.29465,81.8725124 C494.616174,80.2113186 496.184984,76.6117772 496.184984,72.6435614 C496.184984,63.6926272 489.909746,60.2778548 480.589274,60.2778548 C479.943446,60.1863338 478.098346,60.1863338 476.713442,60.4626238 L476.713442,60.4626238 L476.713442,60.4626238 Z M500.522738,101.712728 C500.522738,92.5770252 493.785578,87.5010588 481.60464,87.5010588 C481.051196,87.5010588 477.175366,87.4086744 476.252384,87.5934434 C475.97523,87.6858278 475.606556,87.8705968 475.606556,88.1477502 C475.606556,94.699278 475.514172,105.127501 475.791324,109.187238 C475.97523,110.940816 477.26775,113.432607 478.83656,114.170819 C480.49689,115.093801 484.2812,115.277706 486.864512,115.277706 C494.155116,115.277706 500.522738,111.217969 500.522738,101.712728 L500.522738,101.712728 L500.522738,101.712728 Z M457.888592,55.387521 C458.810712,55.387521 461.579656,55.663811 468.68549,55.663811 C475.421786,55.663811 480.774044,55.4799054 487.326434,55.4799054 C495.354388,55.4799054 506.428438,58.3403708 506.428438,70.3365394 C506.428438,76.2431028 502.275454,80.949531 496.830812,83.256553 C496.554522,83.3489374 496.554522,83.532843 496.830812,83.6252274 C504.582474,85.5635748 511.41202,90.3623876 511.41202,99.4057064 C511.41202,108.26512 505.874994,113.893666 497.846178,117.400823 C492.95498,119.523076 486.864512,120.261288 480.681658,120.261288 C475.97523,120.261288 463.333234,119.707845 456.319784,119.892614 C455.581572,119.61546 456.965612,116.293072 457.61144,115.739629 C459.272634,115.647244 460.56429,115.55486 462.317868,115.001416 C464.809658,114.355588 465.085948,113.617376 465.455486,109.833929 C465.640256,106.603926 465.640256,95.1603372 465.640256,87.0399998 C465.640256,75.8735648 465.73264,68.306671 465.640256,64.6156086 C465.547872,61.7551432 464.532506,60.8321618 462.502636,60.2778548 C460.933828,60.0015648 458.349652,59.6320268 456.2274,59.3557368 C455.765476,58.8938144 457.334286,55.7561954 457.888592,55.387521 L457.888592,55.387521 L457.888592,55.387521 Z M404.641456,112.786779 C406.856958,114.539494 411.193848,115.277706 415.069678,115.277706 C420.05326,115.277706 425.03598,114.355588 429.834792,110.017835 C434.72599,105.58856 438.139898,98.7598784 438.139898,87.8705968 C438.139898,77.4423742 434.171682,68.952499 426.051346,63.9697806 C421.437302,61.1084518 415.530738,59.9091802 408.702056,59.9091802 C406.672188,59.9091802 404.73384,60.0015648 403.53457,60.5550082 C403.257416,60.7397772 402.611588,61.5703742 402.611588,62.0314332 C402.426818,63.8773962 402.426818,78.0882022 402.426818,86.3941718 C402.426818,94.9764316 402.426818,106.9726 402.611588,108.356641 C402.611588,109.741545 403.257416,111.863797 404.641456,112.786779 L404.641456,112.786779 L404.641456,112.786779 Z M383.69349,55.387521 C385.447068,55.387521 392.183366,55.663811 395.413368,55.663811 C401.227548,55.663811 405.379668,55.387521 416.361334,55.387521 C425.589422,55.387521 433.341086,57.8793118 438.87811,62.5848768 C445.614408,68.3990554 449.121564,76.4278716 449.121564,86.2094028 C449.121564,100.143919 442.753942,108.172735 436.38632,112.786779 C430.01956,117.493207 421.713592,120.261288 409.902192,120.261288 C403.626954,120.261288 392.830056,120.076519 383.87826,119.984135 L383.785874,119.984135 C383.324816,119.154401 384.524088,115.924398 385.2623,115.832013 C387.661706,115.55486 388.307534,115.462475 389.507668,115.001416 C391.445152,114.263204 391.81469,113.247838 392.091844,109.833929 C392.368134,103.466307 392.27575,95.8070286 392.27575,87.1323844 C392.27575,80.949531 392.368134,68.8601146 392.183366,64.9842832 C391.907076,61.7551432 390.523034,60.9245462 387.75409,60.3702392 C386.37005,60.0939492 384.524088,59.7244114 381.940776,59.4481212 C381.571238,58.8014298 383.232432,55.9409644 383.69349,55.387521 L383.69349,55.387521 L383.69349,55.387521 Z"
+                            fill="#8E714E"> </path>
+                          <path
+                            d="M272.033456,116.385457 C269.726434,116.108303 268.06524,115.739629 266.034508,114.816647 C265.758218,114.631878 265.296296,113.70976 265.296296,113.340222 C265.111528,110.110219 265.111528,100.882131 265.111528,94.699278 C265.111528,89.7156962 264.281794,85.378806 262.158678,82.3335716 C259.666886,78.8264146 256.068208,76.7965462 251.454164,76.7965462 C247.393564,76.7965462 241.948924,79.5654906 237.427264,83.441322 C237.33488,83.532843 236.596668,84.1795344 236.689052,83.1641684 C236.689052,82.1488026 236.87382,80.118934 236.966206,78.7348936 C237.05859,77.4423742 236.320378,76.7965462 236.320378,76.7965462 C233.366664,78.2729712 225.061558,80.2113186 222.016323,80.4876086 C219.801686,80.949531 219.248242,83.071784 221.555264,83.8099964 L221.647649,83.8099964 C224.138576,84.548209 225.79977,85.378806 227.091426,86.2094028 C228.014408,86.9476154 227.922022,87.9629812 227.922022,88.7935782 C228.014408,95.714644 228.014408,106.326772 227.738118,112.140951 C227.645732,114.447973 226.999904,115.277706 225.338712,115.647244 L225.522616,115.55486 C224.23096,115.832013 223.215594,116.108303 221.646785,116.293072 C221.093342,116.846516 221.093342,119.800229 221.646785,120.446057 C222.662152,120.446057 228.014408,120.168904 232.444546,120.168904 C238.535014,120.168904 241.672634,120.446057 243.241442,120.446057 C243.88727,119.707845 244.07204,116.9389 243.702502,116.293072 C241.948924,116.200688 240.657268,116.016782 239.457996,115.647244 C237.796802,115.277706 237.33488,114.447973 237.242496,112.509625 C237.05859,107.618428 237.05859,97.2834534 237.05859,90.2700032 C237.05859,88.3316558 237.612034,87.4086744 238.165476,86.8552308 C240.28773,85.0101314 243.702502,83.717612 246.747736,83.717612 C249.700586,83.717612 251.638934,84.6405934 253.115358,85.8407284 C255.145228,87.5010588 255.791056,89.9004652 256.068208,91.6540436 C256.529268,95.6222596 256.345362,103.466307 256.345362,110.294988 C256.345362,113.98605 256.068208,114.909032 254.684168,115.370091 C254.03834,115.647244 252.377146,116.016782 250.438798,116.200688 C249.79297,116.846516 249.97774,119.707845 250.438798,120.353673 C253.115358,120.353673 256.252978,120.076519 260.867022,120.076519 C266.587952,120.076519 270.279878,120.353673 271.756302,120.353673 C272.217362,119.800229 272.40213,117.123669 272.032592,116.385457 L272.033456,116.385457 L272.033456,116.385457 Z M297.595466,81.1343 C292.70427,81.1343 289.659034,84.9177468 289.659034,90.8234468 C289.659034,96.821531 292.334732,103.742597 299.902488,103.742597 C301.194144,103.742597 303.59355,103.189153 304.700438,101.897497 C306.454016,100.236303 307.654152,96.9139156 307.654152,93.407622 C307.654152,85.7483438 303.86984,81.1343 297.595466,81.1343 L297.595466,81.1343 L297.595466,81.1343 Z M296.948776,121.922482 C295.103676,121.922482 293.811156,122.475926 292.981422,122.937848 C289.104728,125.428776 287.352012,127.828182 287.352012,130.689511 C287.352012,133.365207 288.366516,135.48746 290.582016,137.333423 C293.257712,139.640445 296.948776,140.748195 301.655204,140.748195 C311.06806,140.748195 315.221044,135.672229 315.221044,130.689511 C315.221044,127.182354 313.467466,124.875332 309.868788,123.583676 C307.284614,122.475926 302.578184,121.922482 296.948776,121.922482 L296.948776,121.922482 L296.948776,121.922482 Z M297.595466,145.915683 C291.966056,145.915683 287.905456,144.715548 284.399162,142.039851 C280.98439,139.455676 279.507966,135.579845 279.507966,132.904148 C279.507966,132.165936 279.692734,130.135204 281.353928,128.290104 C282.368432,127.182354 284.583068,125.060101 289.843804,121.461423 C290.02771,121.369039 290.120094,121.276654 290.120094,121.091885 C290.120094,120.907116 289.935324,120.722347 289.75142,120.630826 C285.413666,118.969632 284.12201,116.293072 283.752472,114.816647 L283.752472,114.631878 C283.66095,114.078435 283.476182,113.524991 284.306778,112.970684 C284.952606,112.509625 285.875588,111.956182 286.89009,111.310354 C288.4589,110.387373 290.120094,109.372007 291.13546,108.54141 C291.320228,108.356641 291.320228,108.172735 291.320228,107.987966 C291.320228,107.803197 291.13546,107.618428 290.95069,107.526907 C284.491548,105.403791 281.261544,100.604978 281.261544,93.407622 C281.261544,88.7011938 283.383798,84.4558244 287.167244,81.780128 C289.75142,79.7493962 296.210562,77.2584686 300.455932,77.2584686 L300.733086,77.2584686 C305.069976,77.3499898 307.469382,78.2729712 310.883292,79.473106 C312.729254,80.118934 314.482832,80.3952242 316.882238,80.3952242 C320.480916,80.3952242 322.049726,79.2883372 323.341382,77.9966812 C323.433766,78.1805866 323.618536,78.6425092 323.71092,79.8417806 C323.803304,81.0419156 323.433766,82.7946306 322.510786,84.08715 C321.772572,85.1016524 320.112242,85.8407284 318.451048,85.8407284 L317.989126,85.8407284 C316.327932,85.6559594 315.58972,85.4711904 315.58972,85.4711904 L315.221044,85.6559594 C315.12866,85.8407284 315.221044,86.024634 315.31343,86.3017874 L315.405814,86.4865564 C315.58972,87.3171532 315.959258,89.8080808 315.959258,90.4547722 C315.959258,98.021666 312.914022,101.34319 309.68402,103.834981 C306.5464,106.142003 302.947722,107.618428 298.887122,107.987966 C298.794738,107.987966 298.426064,107.987966 297.595466,108.080351 C297.133544,108.080351 296.487716,108.172735 296.395332,108.172735 L296.302948,108.172735 C295.564734,108.356641 293.719636,109.279622 293.719636,110.848432 C293.719636,112.232472 294.550232,113.893666 298.517584,114.170819 C299.348182,114.263204 300.178778,114.263204 301.10176,114.355588 C306.361632,114.724263 312.914022,115.186185 315.959258,116.200688 C320.203764,117.769497 322.880324,121.552944 322.880324,126.075467 C322.880324,132.904148 317.989126,139.27177 309.868788,143.239123 C305.900572,144.992701 301.932356,145.915683 297.595466,145.915683 L297.595466,145.915683 L297.595466,145.915683 Z M350.195912,81.595359 C348.257564,81.595359 346.503986,82.056418 345.21233,82.9793996 C341.613652,85.194037 339.76769,89.6241752 339.76769,96.0833186 C339.76769,108.172735 345.858158,116.66261 354.532802,116.66261 C357.116978,116.66261 359.146846,115.924398 360.900424,114.447973 C363.57612,112.232472 364.961024,107.803197 364.961024,101.620344 C364.961024,89.6241752 358.962076,81.595359 350.195912,81.595359 L350.195912,81.595359 L350.195912,81.595359 Z M351.857106,121.091885 C336.169012,121.091885 330.539602,109.556776 330.539602,98.7598784 C330.539602,91.1929846 333.584836,85.378806 339.675304,81.225821 C344.013058,78.5501246 349.180546,77.0736996 353.79459,77.0736996 C365.790758,77.0736996 374.189112,85.6559594 374.189112,98.021666 C374.189112,106.419157 370.866724,113.063069 364.499102,117.123669 C361.453868,119.153538 356.193996,121.091885 351.856242,121.091885 L351.857106,121.091885 L351.857106,121.091885 Z M187.410994,81.595359 C185.472647,81.595359 183.719932,82.056418 182.427413,82.9793996 C178.828735,85.194037 176.982772,89.6241752 176.982772,96.0833186 C176.982772,108.172735 183.073241,116.66261 191.747885,116.66261 C194.33206,116.66261 196.361929,115.924398 198.115507,114.447973 C200.791203,112.232472 202.176107,107.803197 202.176107,101.620344 C202.176107,89.6241752 196.269544,81.595359 187.410994,81.595359 L187.410994,81.595359 L187.410994,81.595359 Z M189.072188,121.091885 C173.384094,121.091885 167.754684,109.556776 167.754684,98.7598784 C167.754684,91.1929846 170.799918,85.378806 176.890387,81.225821 C181.228141,78.5501246 186.395628,77.0736996 191.009672,77.0736996 C203.006704,77.0736996 211.404195,85.6559594 211.404195,98.021666 C211.404195,106.419157 208.081807,113.063069 201.714185,117.123669 C198.761335,119.153538 193.501463,121.091885 189.072188,121.091885 L189.072188,121.091885 L189.072188,121.091885 Z M83.5941444,120.168904 C83.4093754,119.892614 83.2246064,119.062017 83.316991,118.046651 C83.316991,117.308438 83.50176,116.846516 83.5941444,116.66261 C85.5316284,116.385457 86.5469944,116.108303 87.6538814,115.832013 C89.4998442,115.370091 90.2380568,114.355588 90.3304412,112.048566 C90.6075946,106.511541 90.6075946,95.990934 90.5152102,88.7011938 L90.5152102,88.5164248 C90.5152102,87.6858278 90.5152102,86.6704618 89.4998442,85.9322494 C88.0234192,85.0101314 86.2698408,84.1795344 83.962819,83.532843 C83.132222,83.256553 82.5787784,82.7946306 82.671163,82.241187 C82.671163,81.6877436 83.2246064,81.0419156 84.4247414,80.8571466 C87.4699758,80.579993 95.405544,78.6425092 98.543163,77.2584686 C98.727932,77.4423742 99.0050854,77.9966812 99.0050854,78.7348936 L98.912701,79.7493962 C98.8203164,80.764762 98.727932,81.964897 98.727932,83.1641684 C98.727932,83.532843 99.0974698,83.8099964 99.4661444,83.8099964 C99.6509134,83.8099964 99.8356824,83.717612 100.020451,83.6252274 C105.926151,79.0111836 111.278407,77.3499898 114.046488,77.3499898 C118.569011,77.3499898 122.075305,79.473106 124.751864,83.902381 C124.93577,84.1795344 125.120539,84.2710554 125.397692,84.2710554 C125.582461,84.2710554 125.858751,84.1795344 125.951136,83.9947654 C131.395777,79.8417806 136.840418,77.3499898 140.439096,77.3499898 C149.021355,77.3499898 154.097321,83.717612 154.097321,94.5145092 C154.097321,97.5597436 154.097321,101.527959 154.004937,105.127501 C154.004937,108.356641 153.912553,111.310354 153.912553,113.432607 C153.912553,113.893666 154.558381,115.370091 155.573746,115.647244 C156.865402,116.293072 158.618981,116.570226 160.926003,116.9389 L161.018387,116.9389 C161.203156,117.584728 160.833618,119.984135 160.464944,120.446057 C159.910637,120.446057 159.08004,120.446057 158.157922,120.353673 C156.404343,120.261288 153.912553,120.168904 151.144472,120.168904 C145.422677,120.168904 142.469827,120.261288 139.608499,120.446057 C139.424593,119.707845 139.332208,117.493207 139.608499,116.9389 C141.269692,116.66261 142.100289,116.385457 143.115655,116.108303 C144.961618,115.55486 145.422677,114.724263 145.515062,112.324856 C145.515062,110.572141 145.883736,95.6222596 145.330293,92.0227182 C144.776849,88.3316558 142.007905,83.9947654 135.917436,83.9947654 C133.610414,83.9947654 130.011736,84.9177468 126.504579,87.5934434 C126.320674,87.7782124 126.135905,88.2392714 126.135905,88.5164248 L126.135905,88.6088092 C126.504579,90.5462932 126.504579,92.7617942 126.504579,96.175703 L126.504579,102.173787 C126.504579,106.326772 126.412195,110.202604 126.504579,113.155453 C126.504579,115.186185 127.704714,115.647244 128.72008,116.016782 C129.273524,116.108303 129.642198,116.200688 130.104121,116.293072 C130.934718,116.477841 131.765315,116.66261 133.056971,116.9389 C133.24174,117.308438 133.24174,118.50771 132.964586,119.523076 C132.872202,120.076519 132.687433,120.353673 132.595912,120.446057 C129.458293,120.353673 126.228289,120.261288 121.521861,120.261288 C120.137821,120.261288 117.738414,120.353673 115.707682,120.353673 C114.046488,120.353673 112.477679,120.446057 111.555561,120.446057 C111.463176,120.261288 111.278407,119.61546 111.278407,118.600094 C111.278407,117.769497 111.463176,117.123669 111.647945,116.9389 C112.109004,116.846516 112.477679,116.754995 112.939601,116.754995 C114.046488,116.570226 114.96947,116.385457 115.892451,116.200688 C117.461261,115.739629 118.014704,114.909032 118.107089,112.879163 C118.384242,108.26512 118.660532,95.068816 118.014704,91.7464282 C116.907817,86.3941718 113.862583,83.717612 108.971386,83.717612 C106.11092,83.717612 102.511379,85.1016524 99.558529,87.3171532 C99.0974698,87.6858278 98.727932,88.6088092 98.727932,89.4394062 L98.727932,94.884047 C98.727932,101.527959 98.727932,109.833929 98.8203164,113.432607 C98.912701,114.539494 99.2813754,115.832013 101.404492,116.293072 C101.865551,116.385457 102.603763,116.570226 103.526745,116.66261 L105.187939,116.9389 C105.372708,117.493207 105.280323,119.707845 104.910785,120.446057 C103.987804,120.446057 102.880917,120.353673 101.588397,120.353673 C99.6509134,120.261288 97.1591224,120.168904 94.3910416,120.168904 C91.1610382,120.168904 88.8540162,120.261288 87.0080534,120.353673 C85.7163974,120.168904 84.7010314,120.168904 83.5941444,120.168904 L83.5941444,120.168904 L83.5941444,120.168904 Z"
+                            fill="#442D22"> </path>
+                          <g>
+                            <path
+                              d="M35.0534362,142.317005 L31.2699893,141.024486 C31.2699893,141.024486 31.7319117,121.737713 24.8108459,120.353673 C20.1968021,115.001416 25.5490584,-106.659184 42.1592709,119.61546 C42.1592709,119.61546 36.43834,122.475926 35.4229741,127.367123 C34.3152237,132.165936 35.0534362,142.317005 35.0534362,142.317005 L35.0534362,142.317005 L35.0534362,142.317005 Z"
+                              fill="#FFFFFF"> </path>
+                            <path
+                              d="M35.0534362,142.317005 L31.2699893,141.024486 C31.2699893,141.024486 31.7319117,121.737713 24.8108459,120.353673 C20.1968021,115.001416 25.5490584,-106.659184 42.1592709,119.61546 C42.1592709,119.61546 36.43834,122.475926 35.4229741,127.367123 C34.3152237,132.165936 35.0534362,142.317005 35.0534362,142.317005 L35.0534362,142.317005 L35.0534362,142.317005 Z"
+                              fill="#A6A385"> </path>
+                            <path
+                              d="M37.0841679,123.676061 C37.0841679,123.676061 70.2130718,101.897497 62.461409,56.5867926 C54.9868998,23.6426576 37.360458,12.8457605 35.422974,8.69277572 C33.3007211,5.7399258 31.2699892,0.572438448 31.2699892,0.572438448 L32.6548931,92.2074874 C32.6548931,92.2998718 29.7935642,120.261288 37.0841679,123.676061"
+                              fill="#FFFFFF"> </path>
+                            <path
+                              d="M37.0841679,123.676061 C37.0841679,123.676061 70.2130718,101.897497 62.461409,56.5867926 C54.9868998,23.6426576 37.360458,12.8457605 35.422974,8.69277572 C33.3007211,5.7399258 31.2699892,0.572438448 31.2699892,0.572438448 L32.6548931,92.2074874 C32.6548931,92.2998718 29.7935642,120.261288 37.0841679,123.676061"
+                              fill="#499D4A"> </path>
+                            <path
+                              d="M29.332506,124.875332 C29.332506,124.875332 -1.76652951,103.650212 0.0794333896,66.2768026 C1.8321484,28.9025296 23.7954806,10.5387386 28.0399866,7.21635076 C30.8089308,4.26350084 30.9013154,3.15575042 31.0860844,0.202900506 C33.0235682,4.35588532 32.6548938,62.3085868 32.9311838,69.1372682 C33.7617808,95.4374908 31.4547588,119.892614 29.332506,124.875332 L29.332506,124.875332 L29.332506,124.875332 Z"
+                              fill="#FFFFFF"> </path>
+                            <path
+                              d="M29.332506,124.875332 C29.332506,124.875332 -1.76652951,103.650212 0.0794333896,66.2768026 C1.8321484,28.9025296 23.7954806,10.5387386 28.0399866,7.21635076 C30.8089308,4.26350084 30.9013154,3.15575042 31.0860844,0.202900506 C33.0235682,4.35588532 32.6548938,62.3085868 32.9311838,69.1372682 C33.7617808,95.4374908 31.4547588,119.892614 29.332506,124.875332 L29.332506,124.875332 L29.332506,124.875332 Z"
+                              fill="#58AA50"> </path>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <span>MongoDB</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg width="25px" height="25px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M2.58536 17.4132C1.80488 16.6327 1.80488 15.3673 2.58536 14.5868L14.5868 2.58536C15.3673 1.80488 16.6327 1.80488 17.4132 2.58536L29.4146 14.5868C30.1951 15.3673 30.1951 16.6327 29.4146 17.4132L17.4132 29.4146C16.6327 30.1951 15.3673 30.1951 14.5868 29.4146L2.58536 17.4132Z"
+                        fill="#EE513B"></path>
+                      <path
+                        d="M12.1489 5.06152L10.9336 6.27686L14.0725 9.41577C13.9455 9.68819 13.8746 9.99201 13.8746 10.3124C13.8746 11.222 14.4461 11.9981 15.2496 12.3012V19.9798C14.4461 20.2829 13.8746 21.059 13.8746 21.9686C13.8746 23.1422 14.826 24.0936 15.9996 24.0936C17.1732 24.0936 18.1246 23.1422 18.1246 21.9686C18.1246 21.144 17.6549 20.429 16.9684 20.0768V12.3117L19.9689 15.3122C19.8481 15.5791 19.7809 15.8754 19.7809 16.1874C19.7809 17.361 20.7323 18.3124 21.9059 18.3124C23.0795 18.3124 24.0309 17.361 24.0309 16.1874C24.0309 15.0138 23.0795 14.0624 21.9059 14.0624C21.6778 14.0624 21.4582 14.0983 21.2522 14.1648L18.0297 10.9423C18.0914 10.7433 18.1246 10.5317 18.1246 10.3124C18.1246 9.13878 17.1732 8.18738 15.9996 8.18738C15.7803 8.18738 15.5688 8.22061 15.3697 8.2823L12.1489 5.06152Z"
+                        fill="white"></path>
+                    </g>
+                  </svg>
+                  <span>Git 版本控管</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="fish">
+      <div class="fish-shadow-con">
+        <svg class="fish-shadow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          preserveAspectRatio="xMidYMin slice" viewBox="0 0 743 645">
+          <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+            <path
+              d="M177.367 337.568L182.709 357.739C198.517 417.421 249.748 460.995 311.193 467.019L421.508 477.834C478.237 483.396 532.831 454.649 560.346 404.729C607.09 319.923 557.549 214.182 462.47 195.822L375.079 178.946C368.369 177.651 361.766 175.854 355.324 173.572C251.651 136.837 149.205 231.245 177.367 337.568Z"
+              class="line" id="Line" />
+          </g>
+
+          <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+            fill-rule="evenodd">
+            <g id="Group" transform="translate(-103.000000, 3.000000)" fill="#F2AFAF">
+              <g id="l-1"
+                transform="translate(118.396084, 37.985234) rotate(-89.000000) translate(-118.396084, -37.985234) translate(104.396084, 23.985234)">
+                <path
+                  d="M14.1723611,27.5145257 C19.9713509,27.5145257 24.6723611,22.8135155 24.6723611,17.0145257 C24.6723611,15.8258883 28.1981217,2.09701504 27.8341336,1.03166708 C26.4223375,-3.10048431 18.7827136,6.51452565 14.1723611,6.51452565 C9.87015746,6.51452565 1.67467528,-2.67194974 0.0523652038,1.03166708 C-0.512055182,2.32019808 3.67236107,15.5177394 3.67236107,17.0145257 C3.67236107,22.8135155 8.3733712,27.5145257 14.1723611,27.5145257 Z" />
+              </g>
+            </g>
+            <animateMotion dur="6s" begin="0s" repeatCount="indefinite" rotate="auto" fill="freeze">
+              <mpath xlink:href="#Line" />
+            </animateMotion>
+          </g>
+
+          <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+            fill-rule="evenodd">
+            <g id="Group" transform="translate(-71.000000, 3.000000)">
+              <g id="l-2"
+                transform="translate(96.916890, 37.437926) rotate(-89.000000) translate(-96.916890, -37.437926) translate(60.416890, 13.437926)">
+                <ellipse id="Oval" cx="36.5" cy="24" rx="16.5" ry="24" />
+                <path
+                  d="M52.8409492,28.4193415 C56.9830848,28.4193415 67.8409492,23.8671728 67.8409492,17.7920406 C67.8409492,16.3338966 72.7364131,8.06546148 72.3851131,6.79204055 C71.2727759,2.75994931 63.4888957,6.79204055 60.3409492,6.79204055 C56.1988135,6.79204055 52.8409492,11.7169083 52.8409492,17.7920406 C52.8409492,23.8671728 48.6988135,28.4193415 52.8409492,28.4193415 Z"
+                  id="Oval" />
+                <path
+                  d="M1.84094917,28.4193415 C5.98308479,28.4193415 16.8409492,23.8671728 16.8409492,17.7920406 C16.8409492,16.3338966 21.7364131,8.06546148 21.3851131,6.79204055 C20.2727759,2.75994931 12.4888957,6.79204055 9.34094917,6.79204055 C5.19881354,6.79204055 1.84094917,11.7169083 1.84094917,17.7920406 C1.84094917,23.8671728 -2.30118646,28.4193415 1.84094917,28.4193415 Z"
+                  id="Oval"
+                  transform="translate(10.701577, 16.709671) scale(-1, 1) translate(-10.701577, -16.709671) " />
+              </g>
+            </g>
+            <animateMotion dur="6s" begin="0.1s" repeatCount="indefinite" rotate="auto" fill="freeze">
+              <mpath xlink:href="#Line" />
+            </animateMotion>
+          </g>
+
+          <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+            fill-rule="evenodd">
+            <g id="Group" transform="translate(-58.000000, 3.000000)" fill="#D8D8D8">
+              <g id="l-3-"
+                transform="translate(83.924588, 36.883456) rotate(-89.000000) translate(-83.924588, -36.883456) translate(69.424588, 12.883456)">
+                <path
+                  d="M14.1723611,48 C19.4148996,48 23.903645,41.8034457 25.7601702,33.016917 C26.3483828,30.2330353 28.8341336,32.1407168 28.8341336,28.9515567 C28.8341336,15.6967227 21.0759204,1.42108547e-14 14.1723611,1.42108547e-14 C7.2688017,1.42108547e-14 3.55271368e-15,13.745166 3.55271368e-15,27 C3.55271368e-15,29.9816317 1.95554677,29.8362716 2.47309478,32.4701788 C4.25630479,41.5452976 8.82173488,48 14.1723611,48 Z"
+                  id="l-3" />
+              </g>
+            </g>
+            <animateMotion dur="6s" begin="0.2s" repeatCount="indefinite" rotate="auto" fill="freeze">
+              <mpath xlink:href="#Line" />
+            </animateMotion>
+          </g>
+
+          <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+            fill-rule="evenodd">
+            <g id="Group" transform="translate(-48.000000, 3.000000)" fill="#D8D8D8">
+              <g id="l-4-"
+                transform="translate(73.917498, 37.202362) rotate(-89.000000) translate(-73.917498, -37.202362) translate(61.417498, 13.202362)">
+                <path
+                  d="M12.2878333,48 C16.8332608,48 20.7251285,41.8034457 22.3347878,33.016917 C22.8447845,30.2330353 25,32.1407168 25,28.9515567 C25,15.6967227 18.2734123,1.42108547e-14 12.2878333,1.42108547e-14 C6.30225431,1.42108547e-14 0,13.745166 0,27 C0,29.9816317 1.69551372,29.8362716 2.14424232,32.4701788 C3.69033525,41.5452976 7.64869079,48 12.2878333,48 Z"
+                  id="l-4" />
+              </g>
+            </g>
+            <animateMotion dur="6s" begin="0.3s" repeatCount="indefinite" rotate="auto" fill="freeze">
+              <mpath xlink:href="#Line" />
+            </animateMotion>
+          </g>
+
+          <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+            fill-rule="evenodd">
+            <g id="Group" transform="translate(-32.000000, 3.000000)" fill="#D8D8D8">
+              <g id="l-5-"
+                transform="translate(58.922677, 36.774735) rotate(-89.000000) translate(-58.922677, -36.774735) translate(49.422677, 12.774735)">
+                <path
+                  d="M9.33875331,48 C12.7932782,48 15.7510977,41.8034457 16.9744387,33.016917 C17.3620362,30.2330353 19,32.1407168 19,28.9515567 C19,15.6967227 13.8877933,1.42108547e-14 9.33875331,1.42108547e-14 C4.78971327,1.42108547e-14 0,13.745166 0,27 C0,29.9816317 1.28859043,29.8362716 1.62962417,32.4701788 C2.80465479,41.5452976 5.813005,48 9.33875331,48 Z"
+                  id="l-4" />
+              </g>
+            </g>
+            <animateMotion dur="6s" begin="0.4s" repeatCount="indefinite" rotate="auto" fill="freeze">
+              <mpath xlink:href="#Line" />
+            </animateMotion>
+          </g>
+
+          <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+            fill-rule="evenodd">
+            <g id="Group" transform="translate(-1.000000, -2.000000)" fill="#D8D8D8">
+              <g id="l-6"
+                transform="translate(23.080623, 42.228667) rotate(-89.000000) translate(-23.080623, -42.228667) translate(-17.919377, 20.728667)">
+                <path
+                  d="M41.7607406,42.4419194 C43.7607286,42.4419194 43.2381119,38.329711 43.2310921,38.0763828 C43.1415394,34.8446384 44.2788431,34.4419194 41.6451883,34.4419194 C39.0115336,34.4419194 39.7260112,34.2957436 39.8222402,37.76842 C39.82926,38.0217482 39.7195178,42.4419194 41.7607406,42.4419194 Z"
+                  id="Oval" />
+                <path
+                  d="M23.6342467,37.7478622 C27.3113017,37.7478622 36.9500408,30.5559331 36.9500408,20.9578882 C36.9500408,18.65418 41.2958401,5.59095627 40.9839843,3.57909038 C39.9965407,-2.7911731 32.569021,0.0196920288 29.4031545,6.69804407 C26.912494,11.9520586 23.6342467,11.3598432 23.6342467,20.9578882 C23.6342467,30.5559331 19.9571917,37.7478622 23.6342467,37.7478622 Z"
+                  id="Oval"
+                  transform="translate(31.500000, 18.873931) scale(-1, 1) translate(-31.500000, -18.873931) " />
+                <path
+                  d="M43.2310921,38.0763828 C46.9081472,38.0763828 56.5468863,30.8844538 56.5468863,21.2864088 C56.5468863,18.9827007 60.8926856,5.91947694 60.5808297,3.90761104 C59.5933862,-2.46265244 52.1658664,0.348212694 49,7.02656473 C46.5093394,12.2805793 43.2310921,11.6883638 43.2310921,21.2864088 C43.2310921,30.8844538 39.5540371,38.0763828 43.2310921,38.0763828 Z"
+                  id="Oval" />
+                <rect id="Rectangle" fill-opacity="0" x="0.186684949" y="18.7699638" width="81" height="9" />
+              </g>
+            </g>
+            <animateMotion dur="6s" begin="0.5s" repeatCount="indefinite" rotate="auto" fill="freeze">
+              <mpath xlink:href="#Line" />
+            </animateMotion>
+          </g>
+        </svg>
+      </div>
+      <svg class="fish" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        preserveAspectRatio="xMidYMin slice" viewBox="0 0 743 645">
+        <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+          <path
+            d="M177.367 337.568L182.709 357.739C198.517 417.421 249.748 460.995 311.193 467.019L421.508 477.834C478.237 483.396 532.831 454.649 560.346 404.729C607.09 319.923 557.549 214.182 462.47 195.822L375.079 178.946C368.369 177.651 361.766 175.854 355.324 173.572C251.651 136.837 149.205 231.245 177.367 337.568Z"
+            class="line" id="Line" />
+        </g>
+
+        <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+          fill-rule="evenodd">
+          <g id="Group" transform="translate(-103.000000, 3.000000)" fill="#F2AFAF">
+            <g id="l-1"
+              transform="translate(118.396084, 37.985234) rotate(-89.000000) translate(-118.396084, -37.985234) translate(104.396084, 23.985234)">
+              <path
+                d="M14.1723611,27.5145257 C19.9713509,27.5145257 24.6723611,22.8135155 24.6723611,17.0145257 C24.6723611,15.8258883 28.1981217,2.09701504 27.8341336,1.03166708 C26.4223375,-3.10048431 18.7827136,6.51452565 14.1723611,6.51452565 C9.87015746,6.51452565 1.67467528,-2.67194974 0.0523652038,1.03166708 C-0.512055182,2.32019808 3.67236107,15.5177394 3.67236107,17.0145257 C3.67236107,22.8135155 8.3733712,27.5145257 14.1723611,27.5145257 Z" />
+            </g>
+          </g>
+          <animateMotion dur="6s" begin="0s" repeatCount="indefinite" rotate="auto" fill="freeze">
+            <mpath xlink:href="#Line" />
+          </animateMotion>
+        </g>
+
+        <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+          fill-rule="evenodd">
+          <g id="Group" transform="translate(-71.000000, 3.000000)" fill="#ff5050">
+            <g id="l-2"
+              transform="translate(96.916890, 37.437926) rotate(-89.000000) translate(-96.916890, -37.437926) translate(60.416890, 13.437926)">
+              <ellipse id="Oval" cx="36.5" cy="24" rx="16.5" ry="24" />
+              <path
+                d="M52.8409492,28.4193415 C56.9830848,28.4193415 67.8409492,23.8671728 67.8409492,17.7920406 C67.8409492,16.3338966 72.7364131,8.06546148 72.3851131,6.79204055 C71.2727759,2.75994931 63.4888957,6.79204055 60.3409492,6.79204055 C56.1988135,6.79204055 52.8409492,11.7169083 52.8409492,17.7920406 C52.8409492,23.8671728 48.6988135,28.4193415 52.8409492,28.4193415 Z"
+                id="Oval" />
+              <path
+                d="M1.84094917,28.4193415 C5.98308479,28.4193415 16.8409492,23.8671728 16.8409492,17.7920406 C16.8409492,16.3338966 21.7364131,8.06546148 21.3851131,6.79204055 C20.2727759,2.75994931 12.4888957,6.79204055 9.34094917,6.79204055 C5.19881354,6.79204055 1.84094917,11.7169083 1.84094917,17.7920406 C1.84094917,23.8671728 -2.30118646,28.4193415 1.84094917,28.4193415 Z"
+                id="Oval" transform="translate(10.701577, 16.709671) scale(-1, 1) translate(-10.701577, -16.709671) " />
+            </g>
+          </g>
+          <animateMotion dur="6s" begin="0.1s" repeatCount="indefinite" rotate="auto" fill="freeze">
+            <mpath xlink:href="#Line" />
+          </animateMotion>
+        </g>
+
+        <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+          fill-rule="evenodd">
+          <g id="Group" transform="translate(-58.000000, 3.000000)" fill="#D8D8D8">
+            <g id="l-3-"
+              transform="translate(83.924588, 36.883456) rotate(-89.000000) translate(-83.924588, -36.883456) translate(69.424588, 12.883456)">
+              <path
+                d="M14.1723611,48 C19.4148996,48 23.903645,41.8034457 25.7601702,33.016917 C26.3483828,30.2330353 28.8341336,32.1407168 28.8341336,28.9515567 C28.8341336,15.6967227 21.0759204,1.42108547e-14 14.1723611,1.42108547e-14 C7.2688017,1.42108547e-14 3.55271368e-15,13.745166 3.55271368e-15,27 C3.55271368e-15,29.9816317 1.95554677,29.8362716 2.47309478,32.4701788 C4.25630479,41.5452976 8.82173488,48 14.1723611,48 Z"
+                id="l-3" />
+            </g>
+          </g>
+          <animateMotion dur="6s" begin="0.2s" repeatCount="indefinite" rotate="auto" fill="freeze">
+            <mpath xlink:href="#Line" />
+          </animateMotion>
+        </g>
+
+        <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+          fill-rule="evenodd">
+          <g id="Group" transform="translate(-48.000000, 3.000000)" fill="#D8D8D8">
+            <g id="l-4-"
+              transform="translate(73.917498, 37.202362) rotate(-89.000000) translate(-73.917498, -37.202362) translate(61.417498, 13.202362)">
+              <path
+                d="M12.2878333,48 C16.8332608,48 20.7251285,41.8034457 22.3347878,33.016917 C22.8447845,30.2330353 25,32.1407168 25,28.9515567 C25,15.6967227 18.2734123,1.42108547e-14 12.2878333,1.42108547e-14 C6.30225431,1.42108547e-14 0,13.745166 0,27 C0,29.9816317 1.69551372,29.8362716 2.14424232,32.4701788 C3.69033525,41.5452976 7.64869079,48 12.2878333,48 Z"
+                id="l-4" />
+            </g>
+          </g>
+          <animateMotion dur="6s" begin="0.3s" repeatCount="indefinite" rotate="auto" fill="freeze">
+            <mpath xlink:href="#Line" />
+          </animateMotion>
+        </g>
+
+        <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+          fill-rule="evenodd">
+          <g id="Group" transform="translate(-32.000000, 3.000000)" fill="#D8D8D8">
+            <g id="l-5-"
+              transform="translate(58.922677, 36.774735) rotate(-89.000000) translate(-58.922677, -36.774735) translate(49.422677, 12.774735)">
+              <path
+                d="M9.33875331,48 C12.7932782,48 15.7510977,41.8034457 16.9744387,33.016917 C17.3620362,30.2330353 19,32.1407168 19,28.9515567 C19,15.6967227 13.8877933,1.42108547e-14 9.33875331,1.42108547e-14 C4.78971327,1.42108547e-14 0,13.745166 0,27 C0,29.9816317 1.28859043,29.8362716 1.62962417,32.4701788 C2.80465479,41.5452976 5.813005,48 9.33875331,48 Z"
+                id="l-4" />
+            </g>
+          </g>
+          <animateMotion dur="6s" begin="0.4s" repeatCount="indefinite" rotate="auto" fill="freeze">
+            <mpath xlink:href="#Line" />
+          </animateMotion>
+        </g>
+
+        <g xmlns="http://www.w3.org/2000/svg" id="Artboard" stroke="none" stroke-width="1" fill="none"
+          fill-rule="evenodd">
+          <g id="Group" transform="translate(-1.000000, -2.000000)" fill="#D8D8D8">
+            <g id="l-6"
+              transform="translate(23.080623, 42.228667) rotate(-89.000000) translate(-23.080623, -42.228667) translate(-17.919377, 20.728667)">
+              <path
+                d="M41.7607406,42.4419194 C43.7607286,42.4419194 43.2381119,38.329711 43.2310921,38.0763828 C43.1415394,34.8446384 44.2788431,34.4419194 41.6451883,34.4419194 C39.0115336,34.4419194 39.7260112,34.2957436 39.8222402,37.76842 C39.82926,38.0217482 39.7195178,42.4419194 41.7607406,42.4419194 Z"
+                id="Oval" />
+              <path
+                d="M23.6342467,37.7478622 C27.3113017,37.7478622 36.9500408,30.5559331 36.9500408,20.9578882 C36.9500408,18.65418 41.2958401,5.59095627 40.9839843,3.57909038 C39.9965407,-2.7911731 32.569021,0.0196920288 29.4031545,6.69804407 C26.912494,11.9520586 23.6342467,11.3598432 23.6342467,20.9578882 C23.6342467,30.5559331 19.9571917,37.7478622 23.6342467,37.7478622 Z"
+                id="Oval" transform="translate(31.500000, 18.873931) scale(-1, 1) translate(-31.500000, -18.873931) " />
+              <path
+                d="M43.2310921,38.0763828 C46.9081472,38.0763828 56.5468863,30.8844538 56.5468863,21.2864088 C56.5468863,18.9827007 60.8926856,5.91947694 60.5808297,3.90761104 C59.5933862,-2.46265244 52.1658664,0.348212694 49,7.02656473 C46.5093394,12.2805793 43.2310921,11.6883638 43.2310921,21.2864088 C43.2310921,30.8844538 39.5540371,38.0763828 43.2310921,38.0763828 Z"
+                id="Oval" />
+              <rect id="Rectangle" fill-opacity="0" x="0.186684949" y="18.7699638" width="81" height="9" />
+            </g>
+          </g>
+          <animateMotion dur="6s" begin="0.5s" repeatCount="indefinite" rotate="auto" fill="freeze">
+            <mpath xlink:href="#Line" />
+          </animateMotion>
+        </g>
+      </svg>
+    </div>
+  </section>
+  <!-- -專題 -->
+  <section id="section04" class="bg-white dark:bg-gray-900">
+    <div
+      class="flex flex-wrap justify-center relative items-center max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-2">
+      <div class="mr-auto place-self-center ">
+        <h1 class="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none dark:text-white">
+          專題｜AZ.ゼロ </h1>
+        <p class="max-w-2xl mb-6 font-light text-black lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+          概念發想 <br>
+          　　AZ.ゼロ是一個文創園區，希望能讓有創意的人們來園區辦展覽，創造商機，吸引店家進駐我們的園區。
+        </p>
+        <a href="https://lisia229.github.io/AZFront/#/"
+          class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+          參觀網站
+        </a>
+
+        <div
+          class="max-w-screen-xl hidden lg:flex justify-between items-center py-8 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-4">
+          <div>
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+              class="text-black bg-pink-300 hover:bg-pink-200 focus:ring-4 focus:outline-none focus:ring-pink-300 whitespace-nowrap  font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-white dark:hover:bg-white dark:focus:ring-white"
+              type="button">使用者前台功能<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg></button>
+            <!-- Dropdown menu -->
+            <div id="dropdown"
+              class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                <li>
+                  <span
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">會員註冊／登入</span>
+                </li>
+                <li>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">加入購物車／送出訂單功能</a>
+                </li>
+                <li>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">查看會員資料及修改</a>
+                </li>
+                <li>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">查看會員訂單詳細資訊</a>
+                </li>
+                <li>
+                  <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">頁面瀏覽</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <button id="dropdownDefaultButton2" data-dropdown-toggle="dropdown2"
+              class="text-black bg-pink-300 hover:bg-pink-200 focus:ring-4 focus:outline-none focus:ring-pink-300 whitespace-nowrap  font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-white dark:hover:bg-white dark:focus:ring-white"
+              type="button">前台使用技術<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg></button>
+            <!-- Dropdown menu -->
+            <div id="dropdown2"
+              class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton2">
+                <li>
+                  <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">使用 Vue
+                    開發、Tailwind Css 切版</a>
+                </li>
+                <li>
+                  <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Vuex
+                    存取購物車資料</a>
+                </li>
+                <li>
+                  <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Vue Router
+                    頁面切換</a>
+                </li>
+                <li>
+                  <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RWD
+                    響應式網頁設計</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <button id="dropdownDefaultButton3" data-dropdown-toggle="dropdown3"
+              class="text-black bg-pink-300 hover:bg-pink-200 focus:ring-4 focus:outline-none focus:ring-pink-300 whitespace-nowrap font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-white dark:hover:bg-white dark:focus:ring-white"
+              type="button">管理者後台 <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg></button>
+            <!-- Dropdown menu -->
+            <div id="dropdown3"
+              class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton3">
+                <li>
+                  <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">新增各個品項</a>
+                </li>
+                <li>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">使用關鍵字、類別或名稱查詢物件</a>
+                </li>
+                <li>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">修改發布至前台的內容</a>
+                </li>
+                <li>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">會員資料修改及刪除</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <button id="dropdownDefaultButton4" data-dropdown-toggle="dropdown4"
+              class="text-black  whitespace-nowrap  bg-pink-300 hover:bg-pink-200 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-white dark:hover:bg-white dark:focus:ring-white"
+              type="button">後台使用技術<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg></button>
+            <!-- Dropdown menu -->
+            <div id="dropdown4"
+              class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton4">
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">處理前端請求：Node.js
+                    + Express 套件</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">資料存取：MongoDB
+                    + Mongoose 套件</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">部署網頁到
+                    gitgub</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="lg:mt-0 w-full py-4 lg:flex">
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide rounded-lg ">
+              <img class="rounded-lg" src="./image/w07.png" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img class="rounded-lg" src="./image/p01-1.png" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img class="rounded-lg" src="./image/p01-2.png" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img class="rounded-lg" src="./image/p01.png" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img class="rounded-lg" src="./image/p02.png" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img class="rounded-lg" src="./image/p03.png" alt="">
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- -line機器人 -->
+  <section id="lineborder" class="flex justify-center relative items-center">
+    <a id="linebot" href="https://github.com/Lisia229/LINE"
+      class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+      <img class="object-cover w-full rounded-t-lg h-48 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+        src="./image/w07.jpeg">
+      <img class="object-cover w-full rounded-t-lg h-48 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+        src="./image/l01.jpeg">
+      <div class="flex flex-col justify-between p-4 leading-normal">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">LOL時事</h5>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">LOL時事 是一款提供激鬥峽谷玩家查詢的 LINE Bot。
+          使用 cheerio 抓取網頁內容， 並採用 Line flex carousel 回覆。</p>
+        <img class="object-cover w-36 rounded-t-lg h-36 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+          src="./image/l02.png">
+      </div>
+    </a>
+
+    <img data-aos="fade-right" data-aos-duration="1500" data-aos-offset="200"
+      class="hidden lg:block absolute -z-1 w-96 left-0 top-0" src="./image/m_char.png">
+  </section>
+
+  <!-- -mywork -->
+  <section id="section02" class="bg-white dark:bg-gray-900 flex justify-center relative items-center">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 ">
+      <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">My Work</h2>
+      </div>
+      <div class="grid mb-8 rounded-lg dark:border-gray-700 md:mb-12 md:grid-cols-3">
+        <!-- -work01 -->
+        <div
+          class="w-full px-4 mb-4 py-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://lisia229.github.io/templateCss/">
+            <img class="rounded-t-lg" src="./image/w01.png" alt="layout" alt="" />
+          </a>
+          <div class="p-5">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">EMMA OAKLEY</h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">使用技術</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">使用 Bootstrap 切版、jQuery、animate.css 動畫及
+              textillate.js 文字動態效果製作 。 </p>
+            <a href="https://github.com/Lisia229/templateCss"
+              class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- -work02 -->
+        <div
+          class="w-full mb-4 px-4 py-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://lisia229.github.io/Clock/">
+            <img class="rounded-t-lg" src="./image/w02.png" alt="" />
+          </a>
+          <div class="p-5">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">時鐘</h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">使用技術</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">使用 html5 和 jQuery 製作的時鍾。</p>
+            <a href="https://github.com/Lisia229/Clock" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- -work03 -->
+        <div
+          class="w-full mb-4 px-4 py-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://lisia229.github.io/pomodoro/">
+            <img class="rounded-t-lg" src="./image/w03.png" alt="" />
+          </a>
+          <div class="p-5">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">番茄鐘</h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">使用技術</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">以 Vue、vuetify
+              製作線上番茄鐘。提供使用者紀錄個人待辦事項。可於頁面輸入清單，也具編輯、刪除功能。除了以上功能，還可以選擇鬧鈴以及開關小鈴鐺，還可以下載成app在桌面上。</p>
+            <a href="https://github.com/Lisia229/pomodoro"
+              class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- -work04 -->
+        <div
+          class="w-full mb-4 px-4 py-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://lisia229.github.io/calculator/">
+            <img class="rounded-t-lg" src="./image/w04.png" />
+          </a>
+          <div class="p-5">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">網頁計算機</h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">使用技術</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">使用 html5 和 jQuery 製作的網頁計算機。</p>
+            <a href="https://github.com/Lisia229/calculator"
+              class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- -work05 -->
+        <div
+          class="w-full mb-4 px-4 py-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://lisia229.github.io/littlegame/">
+            <img class="rounded-t-lg" src="./image/w05.png" />
+          </a>
+          <div class="p-5">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">簡單小遊戲</h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">使用技術</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">使用 html5 和 jQuery
+              製作的遊戲。遊戲時間內，以左右鍵操控遊戲人物接住人物球，每接住一個就加一分，時間結束時計算遊戲分數。</p>
+            <a href="https://github.com/Lisia229/littlegame"
+              class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- -work06 -->
+        <div
+          class="w-full mb-4 px-4 py-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://lisia229.github.io/memoryCardGame/">
+            <img class="rounded-t-lg" src="./image/w06.png" />
+          </a>
+          <div class="p-5">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">翻牌記憶小遊戲</h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">使用技術</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">使用 jQuery 及 CSS 3D
+              實現翻牌配對遊戲。當所有相同的圖片配對成功時，會跳出隱藏彩蛋，也可以選擇繼續往下一關邁進。</p>
+            <a href="https://github.com/Lisia229/memoryCardGame"
+              class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- -footer -->
+  <footer id="footer" class="p-4 bg-white sm:p-6 dark:bg-gray-800 relative">
+    <div class="mx-auto max-w-screen-xl">
+      <div class="md:flex md:justify-between lg:flex lg:justify-between">
+        <div class="mb-6 md:mb-0">
+          <a href="https://github.com/Lisia229" class="flex items-center">
+            <img src="./image/icon.PNG" class="w-20 mr-3" alt="FlowBite Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ChiaLing Hsu</span>
+          </a>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Content</h2>
+          <ul class="text-gray-600 dark:text-gray-400">
+            <li class="mb-4">
+              <a href="#" class="hover:underline dark:text-white">Phone: 0921-952-906
+            </li>
+            <li>
+              <a href="#" class="hover:underline dark:text-white">Email: h200022923@gmail.com</a>
+            </li>
+        </div>
+
+      </div>
+    </div>
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://github.com/Lisia229"
+          class="hover:underline">Lisia™</a>. All Rights Reserved.
+      </span>
+      <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+        <!-- !fb -->
+        <a href="https://www.facebook.com/linda.hsu.1401/"
+          class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/chia_ling_hsu/"
+          class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="https://github.com/Lisia229" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    </div>
+  </footer>
+  <div id="backtop">
+    <a href="#">
+      <img class="w-[60px]" src="https://slamdunk-movie.jp/assets/svg/t_pagetop.svg">
+    </a>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- -jQuery -->
+  <script src="./js/jquery-3.6.3.js"></script>
+  <!-- -magnific -->
+  <script src="./js/jquery.magnific-popup.min.js"></script>
+  <!-- -gsap 主程式-->
+  <script src="./Gsap/gsap.js"></script>
+  <script src="./Gsap/ScrollToPlugin.js"></script>
+  <script src="./Gsap/ScrollTrigger.js"></script>
+  <script src="./Gsap/SplitText.min.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init();
+
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 5000, // 自動播放，設定幾秒播放下一張
+      },
+      loop: true,
+    });
+
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    // Change the icons inside the button based on previous settings
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    var themeToggleBtn = document.getElementById('theme-toggle');
+
+    themeToggleBtn.addEventListener('click', function () {
+
+      // toggle icons inside button
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      // if set via local storage previously
+      if (localStorage.getItem('color-theme')) {
+        if (localStorage.getItem('color-theme') === 'light') {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+        }
+
+        // if NOT set via local storage previously
+      } else {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+        }
+      }
+
+    });
+
+    // -navbar
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, SplitText)
+
+    gsap.to('#backtop', {
+      scrollTrigger: {
+        trigger: '#footer',
+        start: 'top bottom',
+        end: '100% bottom',
+        toggleActions: 'play none none reverse'
+        // markers: true
+      },
+      display: 'block',
+      opacity: 1,
+      duration: 0.5
+    })
+
+    gsap.from('#navbar', {
+      yPercent: -100,
+      paused: false,
+      duration: 0.5,
+      scrollTrigger: {
+        start: 'top 60',
+        end: () => '+=' + document.documentElement.scrollHeight, // end 為整份文件高度
+        onEnter(self) {
+          self.animation.play()
+        },
+        onUpdate(self) {
+          // self.direction -1 => 偵測到捲動軸往上
+          // self.direction 1 => 偵測到捲動軸往下
+          self.direction === -1 ? self.animation.play() : self.animation.reverse()
+        },
+        markers: false
+      }
+    })
+
+  </script>
+</body>
+
+</html>
